@@ -12,5 +12,5 @@ A new Flutter project.
 - SignUp Screen(Inconplete)
 
 
-- Version 0.0.1
+- Version 0.0.2
 

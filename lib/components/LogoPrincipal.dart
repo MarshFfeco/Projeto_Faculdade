@@ -13,7 +13,7 @@ class LogoPrincipal extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 40, bottom: 25, left: 25, right: 25),
+      padding: const EdgeInsets.only(top: 40),
       child: Image.asset(caminhoImagem),
     );
   }

@@ -1,5 +1,6 @@
 import 'package:finalproject/Screens/FirstScreen/FirstScreen.dart';
 import 'package:finalproject/Screens/Login/LoginScreen.dart';
+import 'package:finalproject/Screens/SignUp/SignUpScreen.dart';
 import 'package:finalproject/values/Custom_color.dart';
 import 'package:flutter/material.dart';
 
@@ -30,19 +31,21 @@ class _MyHomePageState extends State<MyHomePage> {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
     return Scaffold(
-        body: LoginScreen(
-            height: height,
-            width:
-                width) /*Container(
-            width: double.infinity,
-            height: height,
-            decoration: BoxDecoration(
-                gradient: RadialGradient(
-                    center: Alignment(0.0, 1.1),
-                    radius: 1.0,
-                    colors: [CustomColor().getCorPadraoAzul, Colors.black])),
-            child: FirstScreen(height: height, width: width,))*/
-        );
+      body: //SignUpScreen(height: height, width: width)
+          Container(
+        width: double.infinity,
+        height: height,
+        decoration: BoxDecoration(
+            gradient: RadialGradient(
+                center: Alignment(0.0, 1.1),
+                radius: 1.0,
+                colors: [CustomColor().getCorPadraoAzul, Colors.black])),
+        child: FirstScreen(
+          height: height,
+          width: width,
+        ),
+      ),
+    );
   }
 }
 
