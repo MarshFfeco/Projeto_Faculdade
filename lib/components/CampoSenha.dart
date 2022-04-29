@@ -55,7 +55,7 @@ class _CampoSenhaState extends State<CampoSenha> {
             keyboardType: widget.keyBoardType,
             obscureText: getSecuritytext,
             decoration: InputDecoration(
-              contentPadding: const EdgeInsets.all(20),
+              contentPadding: const EdgeInsets.only(left: 20),
               filled: false,
               enabledBorder: InputBorder.none,
               errorBorder: InputBorder.none,

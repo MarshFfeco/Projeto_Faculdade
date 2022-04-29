@@ -42,7 +42,7 @@ class _CampoTextoState extends State<CampoTexto> {
             keyboardType: widget.textInputType,
             obscureText: false,
             decoration: InputDecoration(
-              contentPadding: EdgeInsets.all(20),
+              contentPadding: EdgeInsets.only(left: 20),
               filled: false,
               enabledBorder: InputBorder.none,
               errorBorder: InputBorder.none,
@@ -50,7 +50,6 @@ class _CampoTextoState extends State<CampoTexto> {
               focusedErrorBorder: InputBorder.none,
               hintText: widget.hinText,
               hintStyle: TextStyle(color: Colors.white24),
-              hintMaxLines: 50,
             ),
             validator: (value) {
               if (value == null || value.isEmpty) {

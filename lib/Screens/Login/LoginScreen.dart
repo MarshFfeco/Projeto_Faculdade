@@ -1,4 +1,5 @@
 import 'package:finalproject/components/Formulario.dart';
+import 'package:finalproject/values/Custom_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -15,26 +16,23 @@ class LoginScreen extends StatelessWidget {
 
   LoginScreen({
     Key? key,
-    required this.height,
-    required this.width,
   }) : super(key: key);
-
-  final double height;
-  final double width;
 
   @override
   Widget build(BuildContext context) {
-    double alturaCampo = height * 0.05;
+    final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
+    double alturaCampo = height * 0.06;
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
           width: double.infinity,
           height: height,
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
               gradient: RadialGradient(
                   center: Alignment(0.0, 1.1),
                   radius: 1.0,
-                  colors: [Color(0xff3ef1d1), Colors.black])),
+                  colors: [CustomColor().getCorPadraoAzul, Colors.black])),
           child: FormularioCustomizado(
             campos: [
               const Spacer(
@@ -81,6 +79,7 @@ class LoginScreen extends StatelessWidget {
             ],
             nomeTela: "Login",
             tamanhoFlex: 7,
+            isCadastro: false,
           ),
         ),
       ),

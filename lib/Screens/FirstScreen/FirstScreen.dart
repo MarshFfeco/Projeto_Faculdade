@@ -2,6 +2,8 @@ import 'package:finalproject/Screens/Login/LoginScreen.dart';
 import 'package:finalproject/components/LogoPrincipal.dart';
 import 'package:flutter/material.dart';
 
+import '../../components/arrasta.dart';
+
 class FirstScreen extends StatelessWidget {
   const FirstScreen({Key? key, required this.width, required this.height})
       : super(key: key);
@@ -27,8 +29,8 @@ class FirstScreen extends StatelessWidget {
           child: SizedBox(
             width: double.infinity,
             child: Arrasta(
-              width: width,
-              height: height,
+              imagem: "assets/img/passIcon_FirstScreen.png",
+              instancia: LoginScreen(),
             ),
           ),
         ),
@@ -46,6 +48,7 @@ class FirstScreen extends StatelessWidget {
   }
 }
 
+/*
 class Arrasta extends StatefulWidget {
   const Arrasta({Key? key, required this.width, required this.height})
       : super(key: key);
@@ -67,13 +70,10 @@ class _ArrastaState extends State<Arrasta> {
         onDismissed: (direction) {
           setState(() {
             if (direction == DismissDirection.startToEnd) {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: ((context) => LoginScreen(
-                          height: widget.height, width: widget.width))));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: ((context) => LoginScreen())));
             } else if (direction == DismissDirection.endToStart) {
-              isDrag = true;
+              Navigator.pop(context);
             }
           });
         },
@@ -83,3 +83,4 @@ class _ArrastaState extends State<Arrasta> {
         ));
   }
 }
+*/

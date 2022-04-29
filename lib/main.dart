@@ -1,5 +1,6 @@
 import 'package:finalproject/Screens/FirstScreen/FirstScreen.dart';
 import 'package:finalproject/Screens/Login/LoginScreen.dart';
+import 'package:finalproject/Screens/SignUp/PhotoScreen.dart';
 import 'package:finalproject/Screens/SignUp/SignUpScreen.dart';
 import 'package:finalproject/values/Custom_color.dart';
 import 'package:flutter/material.dart';
@@ -31,8 +32,7 @@ class _MyHomePageState extends State<MyHomePage> {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
     return Scaffold(
-      body: //SignUpScreen(height: height, width: width)
-          Container(
+      body: Container(
         width: double.infinity,
         height: height,
         decoration: BoxDecoration(
