@@ -31,8 +31,9 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
-    return Scaffold(
-      body: Container(
+    return Scaffold(body: LoginScreen()
+
+        /*Container(
         width: double.infinity,
         height: height,
         decoration: BoxDecoration(
@@ -44,12 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
           height: height,
           width: width,
         ),
-      ),
-    );
+      ),*/
+        );
   }
-}
-
-enum TelasIncriveis {
-  Login,
-  SignUp,
 }

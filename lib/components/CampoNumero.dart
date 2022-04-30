@@ -3,26 +3,22 @@ import 'package:flutter/material.dart';
 import '../../values/Custom_color.dart';
 import 'CampoConfirmaSenha.dart';
 
-class CampoSenha extends StatefulWidget {
-  const CampoSenha({
+class CampoNumero extends StatefulWidget {
+  const CampoNumero({
     Key? key,
     required this.hinText,
-    required this.keyBoardType,
     required this.altura,
-    required this.pass,
   }) : super(key: key);
 
   final String hinText;
-  final TextInputType keyBoardType;
   final double altura;
-  final TextEditingController pass;
 
   @override
-  State<CampoSenha> createState() => _CampoSenhaState();
+  State<CampoNumero> createState() => _CampoNumeroState();
 }
 
-class _CampoSenhaState extends State<CampoSenha> {
-  final TextEditingController _pass = TextEditingController();
+class _CampoNumeroState extends State<CampoNumero> {
+  final TextEditingController numeroController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -41,8 +37,8 @@ class _CampoSenhaState extends State<CampoSenha> {
                   ])),
           child: TextFormField(
             style: const TextStyle(color: Colors.white),
-            controller: _pass,
-            keyboardType: widget.keyBoardType,
+            controller: numeroController,
+            keyboardType: TextInputType.phone,
             obscureText: true,
             decoration: InputDecoration(
               contentPadding: const EdgeInsets.only(left: 20),
@@ -57,6 +53,8 @@ class _CampoSenhaState extends State<CampoSenha> {
             validator: (value) {
               if (value == null || value.isEmpty) {
                 return "Campo Vazio";
+              } else if (value is! int) {
+                return "Digite apenas números";
               }
               return null;
             },

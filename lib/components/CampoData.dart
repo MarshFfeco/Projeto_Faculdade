@@ -30,7 +30,6 @@ class _CampoDataState extends State<CampoData> {
   Widget build(BuildContext context) {
     String? newDate = dateTime?.toIso8601String();
     return Container(
-      width: widget.largura * 0.8,
       height: widget.altura,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(45),
@@ -69,19 +68,3 @@ class _CampoDataState extends State<CampoData> {
     });
   }
 }
-
-  /*Future<void> _selectDate(BuildContext context) async {
-    final DateTime? picked = await showDatePicker(
-        context: context,
-        initialDate: selectDate,
-        firstDate: firstDate,
-        lastDate: lastDate);
-    if (picked != null && picked != selectDate) {
-      setState(() {
-        dateTime = picked;
-      });
-    }
-  }*/
-
-  
-

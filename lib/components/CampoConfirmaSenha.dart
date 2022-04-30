@@ -2,84 +2,98 @@ import 'package:flutter/material.dart';
 
 import '../../values/Custom_color.dart';
 
-class TextfieldConfirmPassWidget extends StatefulWidget {
-  TextfieldConfirmPassWidget({
-    Key? key,
-    required this.hinText,
-    required this.pass,
-  }) : super(key: key);
-
-  final String hinText;
-  TextEditingController pass = TextEditingController();
+class SenhaRepetiSenha extends StatefulWidget {
+  const SenhaRepetiSenha({Key? key}) : super(key: key);
 
   @override
-  State<TextfieldConfirmPassWidget> createState() =>
-      _TextfieldConfirmPassWidgetState();
+  State<SenhaRepetiSenha> createState() => _SenhaRepetiSenhaState();
 }
 
-class _TextfieldConfirmPassWidgetState
-    extends State<TextfieldConfirmPassWidget> {
+class _SenhaRepetiSenhaState extends State<SenhaRepetiSenha> {
+  final TextEditingController _pass = TextEditingController();
   final TextEditingController _confirmPass = TextEditingController();
-  bool _securityText = true;
-
-  set setSecurityText(bool securityText) {
-    _securityText = securityText;
-  }
-
-  bool get getSecuritytext {
-    return _securityText;
-  }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(30),
-          boxShadow: const [
-            BoxShadow(
-              color: Colors.black26,
-              blurRadius: 10,
-            )
-          ]),
-      child: TextFormField(
-        controller: _confirmPass,
-        keyboardType: TextInputType.visiblePassword,
-        obscureText: getSecuritytext,
-        decoration: InputDecoration(
-          contentPadding: const EdgeInsets.all(20.0),
-          hintText: widget.hinText,
-          hintStyle: TextStyle(color: CustomColor().getCorPadraoAzul),
-          enabledBorder: OutlineInputBorder(
-              borderSide: const BorderSide(color: Colors.white),
-              borderRadius: BorderRadius.circular(30)),
-          focusedBorder: OutlineInputBorder(
-              borderSide: const BorderSide(color: Colors.white),
-              borderRadius: BorderRadius.circular(30)),
-          errorBorder: OutlineInputBorder(
-              borderSide: const BorderSide(color: Colors.redAccent),
-              borderRadius: BorderRadius.circular(30)),
-          focusedErrorBorder: OutlineInputBorder(
-              borderSide: const BorderSide(color: Colors.redAccent),
-              borderRadius: BorderRadius.circular(30)),
-          filled: true,
-          fillColor: Colors.white,
-          prefixIcon: Icon(
-            Icons.key,
-            color: CustomColor().getCorPadraoAzul,
-          ),
-          suffixIcon: IconButton(
-            icon: Icon(
-              getSecuritytext ? Icons.visibility_off : Icons.visibility,
-              color: CustomColor().getCorPadraoAzul,
+    final height = MediaQuery.of(context).size.height;
+    double alturaCampo = height * 0.06;
+    return Column(
+      children: [
+        Container(
+          height: alturaCampo,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(45),
+              gradient: LinearGradient(
+                  begin: Alignment.bottomCenter,
+                  end: Alignment.center,
+                  colors: [
+                    CustomColor().getCorPadraoAzul.withOpacity(0.15),
+                    Colors.black
+                  ])),
+          child: TextFormField(
+            style: const TextStyle(color: Colors.white),
+            controller: _pass,
+            keyboardType: TextInputType.visiblePassword,
+            obscureText: true,
+            decoration: const InputDecoration(
+              contentPadding: EdgeInsets.only(left: 20),
+              filled: false,
+              enabledBorder: InputBorder.none,
+              errorBorder: InputBorder.none,
+              focusedBorder: InputBorder.none,
+              focusedErrorBorder: InputBorder.none,
+              hintText: "Senha",
+              hintStyle: TextStyle(color: Colors.white24),
             ),
-            onPressed: () => setState(() => setSecurityText = !getSecuritytext),
+            validator: (value) {
+              if (value == null || value.isEmpty || value.length < 8) {
+                return "Campo Vazio";
+              }
+              return null;
+            },
           ),
         ),
-        validator: (value) {
-          // Controller controle = Controller();
-          //return controle.ValidatorTextPass(value, widget.pass, _confirmPass);
-        },
-      ),
+        SizedBox(
+          height: height * 0.03,
+        ),
+        Container(
+          height: alturaCampo,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(45),
+              gradient: LinearGradient(
+                  begin: Alignment.bottomCenter,
+                  end: Alignment.center,
+                  colors: [
+                    CustomColor().getCorPadraoAzul.withOpacity(0.15),
+                    Colors.black
+                  ])),
+          child: TextFormField(
+            style: const TextStyle(color: Colors.white),
+            controller: _confirmPass,
+            keyboardType: TextInputType.visiblePassword,
+            obscureText: true,
+            decoration: const InputDecoration(
+              contentPadding: EdgeInsets.only(left: 20),
+              filled: false,
+              enabledBorder: InputBorder.none,
+              errorBorder: InputBorder.none,
+              focusedBorder: InputBorder.none,
+              focusedErrorBorder: InputBorder.none,
+              hintText: "Repetir Senha",
+              hintStyle: TextStyle(color: Colors.white24),
+            ),
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return "Campo Vazio";
+              }
+              if (_pass.text != _confirmPass.text) {
+                return "Senha diferente";
+              }
+              return null;
+            },
+          ),
+        ),
+      ],
     );
   }
 }
