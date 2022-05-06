@@ -109,25 +109,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
               ),
               const Spacer(flex: 1),
-              /*Flexible(
+              Flexible(
                 flex: 2,
                 child: BotaoSignUp(
-                  instancia: PhotoScreen(
-                      explicacao:
-                          "Clique no icone acima e tire uma selfie para conhecermos você",
-                      mainPhoto: Image.asset("assets/img/IconPerson.png"),
-                      principal: "Agora precisamos de uma foto sua. Pode ser?",
-                      tamanhoFoto: 6,
-                      photoPage: 1),
                   formKey: getFormKey,
                   imagem: "assets/img/passIcon_SignUpScrenn.png",
                 ),
-              ),*/
+              ),
             ],
           ),
         ),
       ),
     );
-    // );
   }
 }

@@ -106,49 +106,54 @@ class _PhotoScreenState extends State<PhotoScreen> {
     switch (photoPage) {
       case 1:
         return GestureDetector(
-            child: Icon(
-              Icons.camera,
-              color: Colors.white,
-            ), //Image.asset("assets/img/IconCamera.png"),
-            onTap: () => Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => DocumentosPage(
-                      controller: _controller,
-                      initializeControllerFuture: _initializeControllerFuture,
-                    ),
+            child: Image.asset("assets/img/IconCamera.png"),
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => DocumentosPage(
+                    photoPage: photoPage,
+                    controller: _controller,
+                    initializeControllerFuture: _initializeControllerFuture,
                   ),
-                ));
+                ),
+              );
+            });
 
       case 2:
         return GestureDetector(
             child: Image.asset("assets/img/IconCamera.png"),
-            onTap: () => print(
-                "object")); /*Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => 
-              PhotoScreen(
-                  explicacao:
-                      "Clique no icone acima e tire uma foto do seu documento",
-                  mainPhoto: Image.asset("assets/img/iconDocument.png"),
-                  principal:
-                      "Agora precisamos de uma foto do seu CPF. Pode ser?",
-                  tamanhoFoto: 4,
-                  photoPage: 3),
-            ),
-          ),
-        );*/
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => DocumentosPage(
+                    photoPage: photoPage,
+                    controller: _controller,
+                    initializeControllerFuture: _initializeControllerFuture,
+                  ),
+                ),
+              );
+            });
       case 3:
         return GestureDetector(
-          child: Image.asset("assets/img/IconCamera.png"),
-          onTap: () => Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const MainPage(),
-            ),
+            child: Image.asset("assets/img/IconCamera.png"),
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => DocumentosPage(
+                    photoPage: photoPage,
+                    controller: _controller,
+                    initializeControllerFuture: _initializeControllerFuture,
+                  ),
+                ),
+              );
+            });
+      default:
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const MainPage(),
           ),
         );
-      default:
     }
   }
 }

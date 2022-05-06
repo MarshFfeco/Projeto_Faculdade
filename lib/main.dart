@@ -6,22 +6,15 @@ import 'package:flutter/material.dart';
 
 import 'Screens/FirstScreen/FirstScreen.dart';
 
-Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-
-  final cameras = await availableCameras();
-  final firstCamera = cameras.first;
-
-  runApp(MaterialApp(
-    title: "F A D B A",
-    home: PhotoScreen(
-        camera: firstCamera,
-        explicacao: "Teste",
-        mainPhoto: Image.asset("assets/img/iconDocument.png"),
-        principal: "teste",
-        tamanhoFoto: 4,
-        photoPage: 1),
-  ));
+main() {
+  runApp(
+    const MaterialApp(
+      title: "F A D B A",
+      home: Scaffold(
+        body: FirstScreen(),
+      ),
+    ),
+  );
 }
 
 /*
@@ -43,7 +36,7 @@ class MyApp extends StatelessWidget {
   }
 }
 */
-
+/*
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.fCamera}) : super(key: key);
 
@@ -82,3 +75,4 @@ class _MyHomePageState extends State<MyHomePage> {
     );*/
   }
 }
+*/
