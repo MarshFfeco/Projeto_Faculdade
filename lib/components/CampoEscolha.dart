@@ -3,17 +3,21 @@ import 'package:flutter/material.dart';
 import '../values/Custom_color.dart';
 
 class CampoEscolha extends StatefulWidget {
-  const CampoEscolha({Key? key}) : super(key: key);
+  CampoEscolha({Key? key, required this.dropOpcoes, required this.dropValue})
+      : super(key: key);
+
+  List dropOpcoes = [];
+  String dropValue;
 
   @override
   State<CampoEscolha> createState() => _CampoEscolhaState();
 }
 
 class _CampoEscolhaState extends State<CampoEscolha> {
-  String dropValue = "Faculdade";
+  // String dropValue = "Faculdade";
   @override
   Widget build(BuildContext context) {
-    List dropOpcoes = ["Faculdade", "Escola"];
+    //List dropOpcoes = ["Faculdade", "Escola"];
 
     return Container(
       width: double.infinity,
@@ -35,15 +39,15 @@ class _CampoEscolhaState extends State<CampoEscolha> {
         ),
         dropdownColor: Colors.black,
         style: const TextStyle(color: Colors.black),
-        value: dropValue,
+        value: widget.dropValue,
         onChanged: (String? newValue) {
           setState(
             () {
-              dropValue = newValue!;
+              widget.dropValue = newValue!;
             },
           );
         },
-        items: dropOpcoes.map((valueItem) {
+        items: widget.dropOpcoes.map((valueItem) {
           return DropdownMenuItem<String>(
             value: valueItem,
             child: Padding(

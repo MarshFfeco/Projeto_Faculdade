@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.14)
-project(finalproject LANGUAGES CXX)
+project(fadba LANGUAGES CXX)
 
-set(BINARY_NAME "finalproject")
+set(BINARY_NAME "fadba")
 
 cmake_policy(SET CMP0063 NEW)
 

@@ -22,45 +22,41 @@ class _CampoNumeroState extends State<CampoNumero> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          height: widget.altura,
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(45),
-              gradient: LinearGradient(
-                  begin: Alignment.bottomCenter,
-                  end: Alignment.center,
-                  colors: [
-                    CustomColor().getCorPadraoAzul.withOpacity(0.15),
-                    Colors.black
-                  ])),
-          child: TextFormField(
-            style: const TextStyle(color: Colors.white),
-            controller: numeroController,
-            keyboardType: TextInputType.phone,
-            obscureText: true,
-            decoration: InputDecoration(
-              contentPadding: const EdgeInsets.only(left: 20),
-              filled: false,
-              enabledBorder: InputBorder.none,
-              errorBorder: InputBorder.none,
-              focusedBorder: InputBorder.none,
-              focusedErrorBorder: InputBorder.none,
-              hintText: widget.hinText,
-              hintStyle: const TextStyle(color: Colors.white24),
-            ),
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return "Campo Vazio";
-              } else if (value is! int) {
-                return "Digite apenas números";
-              }
-              return null;
-            },
-          ),
+    return Container(
+      height: widget.altura,
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(45),
+          gradient: LinearGradient(
+              begin: Alignment.bottomCenter,
+              end: Alignment.center,
+              colors: [
+                CustomColor().getCorPadraoAzul.withOpacity(0.15),
+                Colors.black
+              ])),
+      child: TextFormField(
+        style: const TextStyle(color: Colors.white),
+        controller: numeroController,
+        keyboardType: TextInputType.phone,
+        obscureText: false,
+        decoration: InputDecoration(
+          contentPadding: const EdgeInsets.only(left: 20),
+          filled: false,
+          enabledBorder: InputBorder.none,
+          errorBorder: InputBorder.none,
+          focusedBorder: InputBorder.none,
+          focusedErrorBorder: InputBorder.none,
+          hintText: widget.hinText,
+          hintStyle: const TextStyle(color: Colors.white24),
         ),
-      ],
+        validator: (value) {
+          if (value == null || value.isEmpty) {
+            return "Campo Vazio";
+          } else if (value.length < 9) {
+            return "Digite um número válido";
+          }
+          return null;
+        },
+      ),
     );
   }
 }

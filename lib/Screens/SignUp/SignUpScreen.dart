@@ -1,14 +1,15 @@
-import 'package:finalproject/components/Botao.dart';
-import 'package:finalproject/components/CampoData.dart';
-import 'package:finalproject/components/CampoEscolha.dart';
-import 'package:finalproject/components/CampoNumero.dart';
-import 'package:finalproject/components/CampoSenha.dart';
-import 'package:finalproject/components/Formulario.dart';
-import 'package:finalproject/values/Custom_color.dart';
+import 'package:fadba/Screens/MainPage/MainPage.dart';
+import 'package:fadba/components/BotaoSignUp.dart';
+import 'package:fadba/components/CampoData.dart';
+import 'package:fadba/components/CampoEscolha.dart';
+import 'package:fadba/components/CampoNumero.dart';
+
+import 'package:fadba/values/Custom_color.dart';
 import 'package:flutter/material.dart';
 
 import '../../components/CampoConfirmaSenha.dart';
 import '../../components/CampoText.dart';
+import 'PhotoScreen.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({Key? key}) : super(key: key);
@@ -34,84 +35,99 @@ class _SignUpScreenState extends State<SignUpScreen> {
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
+
     double alturaCampo = height * 0.06;
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
-          width: width,
+          width: double.infinity,
           height: height,
           decoration: BoxDecoration(
-              color: Colors.red,
               gradient: RadialGradient(
                   center: Alignment(0.0, 1.5),
                   radius: 1.0,
                   colors: [CustomColor().getCorPadraoAzul, Colors.black])),
-          child: Form(
-            key: getFormKey,
-            child: Column(
-              children: [
-                SizedBox(height: height * 0.09),
-                const SizedBox(
-                    child: Text("Cadastro",
-                        style: TextStyle(color: Colors.white, fontSize: 40))),
-                SizedBox(height: height * 0.03),
-                SizedBox(
-                  width: width * 0.8,
-                  child: CampoTexto(
-                      hinText: 'Nome Completo',
-                      altura: alturaCampo,
-                      textInputType: TextInputType.name),
+          child: Column(
+            children: [
+              const Spacer(flex: 2),
+              const Flexible(
+                flex: 2,
+                child: Text(
+                  "Cadastro",
+                  style: TextStyle(color: Colors.white, fontSize: 40),
                 ),
-                SizedBox(height: height * 0.03),
-                SizedBox(
+              ),
+              const Spacer(flex: 1),
+              Flexible(
+                flex: 7,
+                child: SizedBox(
                   width: width * 0.8,
-                  child: CampoData(
-                    textInputType: TextInputType.datetime,
-                    altura: alturaCampo,
-                    largura: width,
+                  child: Form(
+                    key: getFormKey,
+                    child: Scrollbar(
+                      child: ListView(
+                        children: [
+                          CampoTexto(
+                              hinText: 'Nome Completo',
+                              altura: alturaCampo,
+                              textInputType: TextInputType.name),
+                          const Divider(),
+                          CampoData(
+                            textInputType: TextInputType.datetime,
+                            altura: alturaCampo,
+                          ),
+                          const Divider(),
+                          CampoNumero(
+                            hinText: "Contato do aluno",
+                            altura: alturaCampo,
+                          ),
+                          const Divider(),
+                          CampoNumero(
+                            hinText: "Contato do Responsável",
+                            altura: alturaCampo,
+                          ),
+                          const Divider(),
+                          CampoEscolha(
+                            dropOpcoes: const ["Faculdade", "Fundamental"],
+                            dropValue: "Faculdade",
+                          ),
+                          const Divider(),
+                          CampoEscolha(
+                              dropOpcoes: const ["Masculino", "Feminino"],
+                              dropValue: "Feminino"),
+                          const Divider(),
+                          CampoTexto(
+                              hinText: 'Email',
+                              altura: alturaCampo,
+                              textInputType: TextInputType.emailAddress),
+                          const Divider(),
+                          const SenhaRepetiSenha(),
+                        ],
+                      ),
+                    ),
                   ),
                 ),
-                SizedBox(height: height * 0.03),
-                SizedBox(
-                  width: width * 0.8,
-                  child: CampoNumero(
-                    hinText: "Contato do aluno",
-                    altura: alturaCampo,
-                  ),
+              ),
+              const Spacer(flex: 1),
+              /*Flexible(
+                flex: 2,
+                child: BotaoSignUp(
+                  instancia: PhotoScreen(
+                      explicacao:
+                          "Clique no icone acima e tire uma selfie para conhecermos você",
+                      mainPhoto: Image.asset("assets/img/IconPerson.png"),
+                      principal: "Agora precisamos de uma foto sua. Pode ser?",
+                      tamanhoFoto: 6,
+                      photoPage: 1),
+                  formKey: getFormKey,
+                  imagem: "assets/img/passIcon_SignUpScrenn.png",
                 ),
-                SizedBox(height: height * 0.03),
-                SizedBox(
-                  width: width * 0.8,
-                  child: CampoNumero(
-                    hinText: "Contato do Responsável",
-                    altura: alturaCampo,
-                  ),
-                ),
-                SizedBox(height: height * 0.03),
-                SizedBox(width: width * 0.8, child: const CampoEscolha()),
-                SizedBox(height: height * 0.03),
-                SizedBox(
-                  width: width * 0.8,
-                  child: CampoTexto(
-                    hinText: "Email",
-                    textInputType: TextInputType.emailAddress,
-                    altura: alturaCampo,
-                  ),
-                ),
-                SizedBox(height: height * 0.03),
-                SizedBox(width: width * 0.8, child: const SenhaRepetiSenha()),
-                SizedBox(height: height * 0.03),
-                Botao(
-                    formKey: getFormKey,
-                    botaoCadastro: false,
-                    nameButton: "Cadastrar",
-                    cadastrarse: true,
-                    fontSize: 20)
-              ],
-            ),
+              ),*/
+            ],
           ),
         ),
       ),
     );
+    // );
   }
 }

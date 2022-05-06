@@ -1,5 +1,5 @@
-import 'package:finalproject/components/Formulario.dart';
-import 'package:finalproject/values/Custom_color.dart';
+import 'package:fadba/components/Formulario.dart';
+import 'package:fadba/values/Custom_color.dart';
 import 'package:flutter/material.dart';
 
 import '../../components/Botao.dart';
@@ -7,7 +7,7 @@ import '../../components/CampoSenha.dart';
 import '../../components/CampoText.dart';
 
 class LoginScreen extends StatefulWidget {
-  LoginScreen({
+  const LoginScreen({
     Key? key,
   }) : super(key: key);
 
@@ -100,7 +100,6 @@ class _LoginScreenState extends State<LoginScreen> {
               ],
               nomeTela: "Login",
               tamanhoFlex: 7,
-              isCadastro: false,
             ),
           ),
         ),

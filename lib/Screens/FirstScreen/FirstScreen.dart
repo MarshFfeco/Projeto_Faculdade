@@ -1,5 +1,5 @@
-import 'package:finalproject/Screens/Login/LoginScreen.dart';
-import 'package:finalproject/components/LogoPrincipal.dart';
+import 'package:fadba/Screens/Login/LoginScreen.dart';
+import 'package:fadba/components/LogoPrincipal.dart';
 import 'package:flutter/material.dart';
 
 import '../../components/arrasta.dart';

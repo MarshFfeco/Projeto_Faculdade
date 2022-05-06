@@ -3,16 +3,14 @@ import 'package:flutter/material.dart';
 import '../../values/Custom_color.dart';
 
 class CampoData extends StatefulWidget {
-  const CampoData(
-      {Key? key,
-      required this.textInputType,
-      required this.altura,
-      required this.largura})
-      : super(key: key);
+  const CampoData({
+    Key? key,
+    required this.textInputType,
+    required this.altura,
+  }) : super(key: key);
 
   final TextInputType textInputType;
   final double altura;
-  final double largura;
 
   @override
   State<CampoData> createState() => _CampoDataState();

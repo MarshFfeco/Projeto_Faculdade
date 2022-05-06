@@ -1,12 +1,30 @@
-import 'package:finalproject/Screens/FirstScreen/FirstScreen.dart';
-import 'package:finalproject/Screens/Login/LoginScreen.dart';
-import 'package:finalproject/Screens/SignUp/PhotoScreen.dart';
-import 'package:finalproject/Screens/SignUp/SignUpScreen.dart';
-import 'package:finalproject/values/Custom_color.dart';
+import 'package:camera/camera.dart';
+import 'package:fadba/Screens/SignUp/PhotoScreen.dart';
+import 'package:fadba/Screens/SignUp/SignUpScreen.dart';
+import 'package:fadba/values/Custom_color.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp(const MyApp());
+import 'Screens/FirstScreen/FirstScreen.dart';
 
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  final cameras = await availableCameras();
+  final firstCamera = cameras.first;
+
+  runApp(MaterialApp(
+    title: "F A D B A",
+    home: PhotoScreen(
+        camera: firstCamera,
+        explicacao: "Teste",
+        mainPhoto: Image.asset("assets/img/iconDocument.png"),
+        principal: "teste",
+        tamanhoFoto: 4,
+        photoPage: 1),
+  ));
+}
+
+/*
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
@@ -14,13 +32,22 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'F A D B A',
-      home: const MyHomePage(),
+      home: PhotoScreen(
+        camera: widget.fCamera,
+        explicacao: "Teste",
+        mainPhoto: Image.asset("assets/img/iconDocument.png"),
+        principal: "teste",
+        tamanhoFoto: 4,
+        photoPage: 1);,
     );
   }
 }
+*/
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key}) : super(key: key);
+  const MyHomePage({Key? key, required this.fCamera}) : super(key: key);
+
+  final dynamic fCamera;
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -31,9 +58,15 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
-    return Scaffold(body: LoginScreen()
-
-        /*Container(
+    return PhotoScreen(
+        camera: widget.fCamera,
+        explicacao: "Teste",
+        mainPhoto: Image.asset("assets/img/iconDocument.png"),
+        principal: "teste",
+        tamanhoFoto: 4,
+        photoPage: 1);
+    /*Scaffold(
+      body: Container(
         width: double.infinity,
         height: height,
         decoration: BoxDecoration(
@@ -45,7 +78,7 @@ class _MyHomePageState extends State<MyHomePage> {
           height: height,
           width: width,
         ),
-      ),*/
-        );
+      ),
+    );*/
   }
 }

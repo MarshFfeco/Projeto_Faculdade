@@ -1,5 +1,5 @@
-import 'package:finalproject/Screens/MainPage/MainPage.dart';
-import 'package:finalproject/Screens/SignUp/SignUpScreen.dart';
+import 'package:fadba/Screens/MainPage/MainPage.dart';
+import 'package:fadba/Screens/SignUp/SignUpScreen.dart';
 import 'package:flutter/material.dart';
 
 class Botao extends StatelessWidget {
@@ -35,10 +35,13 @@ class Botao extends StatelessWidget {
                   content: const Text("Login Realizado com Sucesso!"),
                   actions: [
                     TextButton(
-                        onPressed: () => Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: ((context) => MainPage()))),
+                        onPressed: () {
+                          Navigator.pop(context);
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: ((context) => const MainPage())));
+                        },
                         child: const Text("OK")),
                     TextButton(
                         onPressed: () => Navigator.pop(context),
@@ -49,6 +52,7 @@ class Botao extends StatelessWidget {
             }
           } else if (botaoCadastro == true && cadastrarse == false) {
             print("Cadastrar");
+
             Navigator.push(
                 context,
                 MaterialPageRoute(

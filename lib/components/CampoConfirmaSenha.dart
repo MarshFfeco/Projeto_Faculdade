@@ -46,16 +46,17 @@ class _SenhaRepetiSenhaState extends State<SenhaRepetiSenha> {
               hintStyle: TextStyle(color: Colors.white24),
             ),
             validator: (value) {
-              if (value == null || value.isEmpty || value.length < 8) {
+              if (value == null || value.isEmpty) {
                 return "Campo Vazio";
+              } else if (value.length < 8) {
+                return "Senha muito pequena";
               }
               return null;
             },
           ),
         ),
-        SizedBox(
-          height: height * 0.03,
-        ),
+        const Divider(),
+        //SizedBox(height: alturaCampo),
         Container(
           height: alturaCampo,
           decoration: BoxDecoration(
