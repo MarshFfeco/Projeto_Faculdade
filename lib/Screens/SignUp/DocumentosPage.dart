@@ -1,12 +1,11 @@
 import 'dart:io';
 import 'package:camera/camera.dart';
+import 'package:fadba/Screens/SignUp/LastPageSignUp.dart';
 import 'package:fadba/Screens/SignUp/PhotoScreen.dart';
 import 'package:flutter/material.dart';
 
-import '../MainPage/MainPage.dart';
-
 class DocumentosPage extends StatefulWidget {
-  DocumentosPage(
+  const DocumentosPage(
       {Key? key,
       required this.controller,
       required this.initializeControllerFuture,
@@ -32,7 +31,6 @@ class _DocumentosPageState extends State<DocumentosPage> {
         future: widget.initializeControllerFuture,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
-            print("Abrir Camera");
             return Stack(
               children: [
                 SizedBox(
@@ -75,7 +73,7 @@ class _DocumentosPageState extends State<DocumentosPage> {
                         IconButton(
                           iconSize: 40,
                           onPressed: () {},
-                          icon: Icon(Icons.camera_front),
+                          icon: const Icon(Icons.camera_front),
                         )
                       ],
                     ),
@@ -84,7 +82,6 @@ class _DocumentosPageState extends State<DocumentosPage> {
               ],
             );
           } else {
-            print("ferrou");
             return const Center(child: CircularProgressIndicator());
           }
         },
@@ -103,8 +100,6 @@ class DisplayPictureScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final height = MediaQuery.of(context).size.height;
-    final width = MediaQuery.of(context).size.width;
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(color: Colors.white),
@@ -130,7 +125,7 @@ class DisplayPictureScreen extends StatelessWidget {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => const MainPage(),
+                                  builder: (context) => const LastPageSignUp(),
                                 ),
                               ),
                             }
@@ -206,14 +201,6 @@ class DisplayPictureScreen extends StatelessWidget {
         }
 
         return Container();
-        /*PhotoScreen(
-          explicacao: "Clique no icone acima e tire uma foto do seu documento",
-          mainPhoto: Image.asset("assets/img/iconDocument.png"),
-          principal: "Agora precisamos de uma foto do seu CPF. Pode ser?",
-          tamanhoFoto: 4,
-          photoPage: 3,
-          camera: firstCamera,
-        );*/
       }),
     );
   }

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../values/Custom_color.dart';
-
 class LogoPrincipal extends StatelessWidget {
   LogoPrincipal({
     Key? key,

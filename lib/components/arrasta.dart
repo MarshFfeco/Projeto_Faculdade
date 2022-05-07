@@ -1,14 +1,20 @@
+import 'package:fadba/Screens/MainPage/MainPage.dart';
 import 'package:flutter/material.dart';
 
 import '../Screens/Login/LoginScreen.dart';
 import '../Screens/SignUp/SignUpScreen.dart';
 
 class Arrasta extends StatefulWidget {
-  const Arrasta({Key? key, required this.instancia, required this.imagem})
+  Arrasta(
+      {Key? key,
+      required this.instancia,
+      required this.imagem,
+      this.excluirHistorico = false})
       : super(key: key);
 
   final dynamic instancia;
   final String imagem;
+  bool excluirHistorico;
 
   @override
   State<Arrasta> createState() => _ArrastaState();
@@ -20,20 +26,27 @@ class _ArrastaState extends State<Arrasta> {
   @override
   Widget build(BuildContext context) {
     return Dismissible(
-        resizeDuration: null,
-        onDismissed: (direction) {
-          setState(() {
-            if (direction == DismissDirection.startToEnd) {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: ((context) => widget.instancia)));
-            } else if (direction == DismissDirection.endToStart) {
-              Navigator.pop(context);
-            }
-          });
-        },
-        key: ValueKey(isDrag),
-        child: Image.asset(
-          widget.imagem,
-        ));
+      resizeDuration: null,
+      onDismissed: (direction) {
+        setState(() {
+          if (direction == DismissDirection.startToEnd &&
+              widget.excluirHistorico == false) {
+            Navigator.push(context,
+                MaterialPageRoute(builder: ((context) => widget.instancia)));
+          } else if (direction == DismissDirection.startToEnd &&
+              widget.excluirHistorico == true) {
+            Navigator.of(context).pushAndRemoveUntil(
+                MaterialPageRoute(builder: (context) => MainPage()),
+                (Route<dynamic> route) => false);
+          } else if (direction == DismissDirection.endToStart) {
+            Navigator.pop(context);
+          }
+        });
+      },
+      key: ValueKey(isDrag),
+      child: Image.asset(
+        widget.imagem,
+      ),
+    );
   }
 }

@@ -1,9 +1,7 @@
 import 'dart:async';
-import 'dart:io';
 import 'package:camera/camera.dart';
-import 'package:fadba/Screens/MainPage/MainPage.dart';
+import 'package:fadba/Screens/SignUp/LastPageSignUp.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import '../../values/Custom_color.dart';
 import 'DocumentosPage.dart';
 
@@ -151,7 +149,7 @@ class _PhotoScreenState extends State<PhotoScreen> {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => const MainPage(),
+            builder: (context) => const LastPageSignUp(),
           ),
         );
     }

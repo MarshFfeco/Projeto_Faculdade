@@ -56,7 +56,6 @@ class _SenhaRepetiSenhaState extends State<SenhaRepetiSenha> {
           ),
         ),
         const Divider(),
-        //SizedBox(height: alturaCampo),
         Container(
           height: alturaCampo,
           decoration: BoxDecoration(

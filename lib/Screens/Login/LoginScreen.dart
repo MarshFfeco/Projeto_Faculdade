@@ -26,7 +26,6 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
-    final width = MediaQuery.of(context).size.width;
     double alturaCampo = height * 0.06;
     return Scaffold(
       body: SingleChildScrollView(
@@ -35,7 +34,7 @@ class _LoginScreenState extends State<LoginScreen> {
           height: height,
           decoration: BoxDecoration(
               gradient: RadialGradient(
-                  center: Alignment(0.0, 1.1),
+                  center: const Alignment(0.0, 1.1),
                   radius: 1.0,
                   colors: [CustomColor().getCorPadraoAzul, Colors.black])),
           child: Form(

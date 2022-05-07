@@ -20,13 +20,9 @@ class Botao extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final height = MediaQuery.of(context).size.height;
-    final width = MediaQuery.of(context).size.width;
-
     return TextButton(
         onPressed: () {
           if (botaoCadastro == false && cadastrarse == false) {
-            print("Entrar");
             if (formKey.currentState!.validate()) {
               showDialog(
                 context: context,
@@ -51,15 +47,12 @@ class Botao extends StatelessWidget {
               );
             }
           } else if (botaoCadastro == true && cadastrarse == false) {
-            print("Cadastrar");
-
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => SignUpScreen(),
+                  builder: (context) => const SignUpScreen(),
                 ));
           } else if (cadastrarse) {
-            print("Cadastrar-se");
             if (formKey.currentState!.validate()) {
               ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                   content: Text('Cadastro realizado com sucesso')));

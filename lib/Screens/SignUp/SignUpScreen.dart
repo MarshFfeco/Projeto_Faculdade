@@ -1,4 +1,3 @@
-import 'package:fadba/Screens/MainPage/MainPage.dart';
 import 'package:fadba/components/BotaoSignUp.dart';
 import 'package:fadba/components/CampoData.dart';
 import 'package:fadba/components/CampoEscolha.dart';
@@ -9,7 +8,6 @@ import 'package:flutter/material.dart';
 
 import '../../components/CampoConfirmaSenha.dart';
 import '../../components/CampoText.dart';
-import 'PhotoScreen.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({Key? key}) : super(key: key);
@@ -44,7 +42,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           height: height,
           decoration: BoxDecoration(
               gradient: RadialGradient(
-                  center: Alignment(0.0, 1.5),
+                  center: const Alignment(0.0, 1.5),
                   radius: 1.0,
                   colors: [CustomColor().getCorPadraoAzul, Colors.black])),
           child: Column(

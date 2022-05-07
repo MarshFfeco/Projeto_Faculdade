@@ -1,10 +1,4 @@
-import 'package:fadba/Screens/SignUp/PhotoScreen.dart';
-import 'package:fadba/components/arrasta.dart';
 import 'package:flutter/material.dart';
-
-import 'Botao.dart';
-import 'CampoText.dart';
-import 'CampoSenha.dart';
 
 class FormularioCustomizado extends StatefulWidget {
   FormularioCustomizado({
@@ -42,7 +36,6 @@ class _FormularioCustomizadoState extends State<FormularioCustomizado> {
             ),
           ),
         ),
-        //const Spacer(flex: 2),
       ],
     );
   }

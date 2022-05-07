@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../values/Custom_color.dart';
-import 'CampoConfirmaSenha.dart';
 
 class CampoSenha extends StatefulWidget {
   const CampoSenha({

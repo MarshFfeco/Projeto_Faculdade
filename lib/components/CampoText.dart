@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../values/Custom_color.dart';
 
 class CampoTexto extends StatefulWidget {
-  CampoTexto(
+  const CampoTexto(
       {Key? key,
       required this.hinText,
       required this.textInputType,
@@ -40,14 +40,14 @@ class _CampoTextoState extends State<CampoTexto> {
           keyboardType: widget.textInputType,
           obscureText: false,
           decoration: InputDecoration(
-            contentPadding: EdgeInsets.only(left: 20),
+            contentPadding: const EdgeInsets.only(left: 20),
             filled: false,
             enabledBorder: InputBorder.none,
             errorBorder: InputBorder.none,
             focusedBorder: InputBorder.none,
             focusedErrorBorder: InputBorder.none,
             hintText: widget.hinText,
-            hintStyle: TextStyle(color: Colors.white24),
+            hintStyle: const TextStyle(color: Colors.white24),
           ),
           validator: (value) {
             if (value == null || value.isEmpty) {

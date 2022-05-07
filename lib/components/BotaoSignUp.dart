@@ -4,15 +4,10 @@ import 'package:flutter/material.dart';
 import '../Screens/SignUp/PhotoScreen.dart';
 
 class BotaoSignUp extends StatefulWidget {
-  const BotaoSignUp(
-      {Key? key,
-      required this.formKey,
-      // required this.instancia,
-      required this.imagem})
+  const BotaoSignUp({Key? key, required this.formKey, required this.imagem})
       : super(key: key);
 
   final formKey;
-  // final dynamic instancia;
   final String imagem;
 
   @override
@@ -43,7 +38,6 @@ class _BotaoSignUpState extends State<BotaoSignUp> {
   }
 
   Future<void> chamada() async {
-    print("chamou?");
     WidgetsFlutterBinding.ensureInitialized();
 
     final cameras = await availableCameras();
