@@ -53,7 +53,8 @@ class _BotaoSignUpState extends State<BotaoSignUp> {
               principal: "Agora precisamos de uma foto sua. Pode ser?",
               tamanhoFoto: 6,
               photoPage: 1,
-              camera: firstCamera,
+              camera: cameras,
+              isFrontal: true,
             )),
       ),
     );

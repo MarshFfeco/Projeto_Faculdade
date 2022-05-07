@@ -13,16 +13,18 @@ class PhotoScreen extends StatefulWidget {
       required this.principal,
       required this.tamanhoFoto,
       required this.photoPage,
-      required this.camera})
+      required this.camera,
+      this.isFrontal = false})
       : super(key: key);
 
-  final CameraDescription camera;
+  final List<CameraDescription> camera;
 
   final Image mainPhoto;
   final String principal;
   final String explicacao;
   final int tamanhoFoto;
   final int photoPage;
+  final bool isFrontal;
 
   @override
   State<PhotoScreen> createState() => _PhotoScreenState();
@@ -32,15 +34,17 @@ class _PhotoScreenState extends State<PhotoScreen> {
   late CameraController _controller;
   late Future<void> _initializeControllerFuture;
 
+  void onNewCameraSelected(CameraDescription cameraDescription) async {
+    _controller = CameraController(
+        widget.camera[widget.isFrontal ? 1 : 0], ResolutionPreset.high,
+        imageFormatGroup: ImageFormatGroup.jpeg);
+    _initializeControllerFuture = _controller.initialize();
+  }
+
   @override
   void initState() {
+    onNewCameraSelected(widget.camera[0]);
     super.initState();
-
-    _controller = CameraController(
-      widget.camera,
-      ResolutionPreset.high,
-    );
-    _initializeControllerFuture = _controller.initialize();
   }
 
   @override
@@ -109,6 +113,7 @@ class _PhotoScreenState extends State<PhotoScreen> {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (context) => DocumentosPage(
+                    camera: widget.camera,
                     photoPage: photoPage,
                     controller: _controller,
                     initializeControllerFuture: _initializeControllerFuture,
@@ -124,6 +129,7 @@ class _PhotoScreenState extends State<PhotoScreen> {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (context) => DocumentosPage(
+                    camera: widget.camera,
                     photoPage: photoPage,
                     controller: _controller,
                     initializeControllerFuture: _initializeControllerFuture,
@@ -138,6 +144,7 @@ class _PhotoScreenState extends State<PhotoScreen> {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (context) => DocumentosPage(
+                    camera: widget.camera,
                     photoPage: photoPage,
                     controller: _controller,
                     initializeControllerFuture: _initializeControllerFuture,

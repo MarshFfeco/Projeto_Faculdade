@@ -9,18 +9,22 @@ class DocumentosPage extends StatefulWidget {
       {Key? key,
       required this.controller,
       required this.initializeControllerFuture,
-      required this.photoPage})
+      required this.photoPage,
+      required this.camera})
       : super(key: key);
 
   final CameraController controller;
   final Future<void> initializeControllerFuture;
   final int photoPage;
+  final List<CameraDescription> camera;
 
   @override
   State<DocumentosPage> createState() => _DocumentosPageState();
 }
 
 class _DocumentosPageState extends State<DocumentosPage> {
+  bool isFrontal = false;
+
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
@@ -71,10 +75,16 @@ class _DocumentosPageState extends State<DocumentosPage> {
                           iconSize: 70,
                         ),
                         IconButton(
-                          iconSize: 40,
-                          onPressed: () {},
-                          icon: const Icon(Icons.camera_front),
-                        )
+                            iconSize: 40,
+                            onPressed: () {
+                              if (isFrontal) {
+                              } else {}
+                            },
+                            icon: Icon(
+                              isFrontal
+                                  ? Icons.camera_rear
+                                  : Icons.camera_front,
+                            ))
                       ],
                     ),
                   ),
@@ -186,7 +196,8 @@ class DisplayPictureScreen extends StatelessWidget {
             principal: "Agora precisamos de uma foto do seu RG. Pode ser?",
             tamanhoFoto: 4,
             photoPage: 2,
-            camera: firstCamera,
+            camera: cameras,
+            isFrontal: false,
           );
         } else if (photoPage == 2) {
           return PhotoScreen(
@@ -196,7 +207,8 @@ class DisplayPictureScreen extends StatelessWidget {
             principal: "Agora precisamos de uma foto do seu CPF. Pode ser?",
             tamanhoFoto: 4,
             photoPage: 3,
-            camera: firstCamera,
+            camera: cameras,
+            isFrontal: false,
           );
         }
 

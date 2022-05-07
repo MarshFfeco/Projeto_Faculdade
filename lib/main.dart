@@ -1,3 +1,4 @@
+import 'package:fadba/Screens/SignUp/SignUpScreen.dart';
 import 'package:flutter/material.dart';
 
 import 'Screens/FirstScreen/FirstScreen.dart';
@@ -7,7 +8,7 @@ main() {
     const MaterialApp(
       title: "F A D B A",
       home: Scaffold(
-        body: FirstScreen(),
+        body: SignUpScreen(),
       ),
     ),
   );
