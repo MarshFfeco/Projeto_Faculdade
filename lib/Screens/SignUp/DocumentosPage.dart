@@ -48,7 +48,7 @@ class _DocumentosPageState extends State<DocumentosPage> {
                     width: width,
                     height: 100,
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
                         IconButton(
@@ -74,17 +74,6 @@ class _DocumentosPageState extends State<DocumentosPage> {
                           icon: Image.asset("assets/img/butonCapture.png"),
                           iconSize: 70,
                         ),
-                        IconButton(
-                            iconSize: 40,
-                            onPressed: () {
-                              if (isFrontal) {
-                              } else {}
-                            },
-                            icon: Icon(
-                              isFrontal
-                                  ? Icons.camera_rear
-                                  : Icons.camera_front,
-                            ))
                       ],
                     ),
                   ),

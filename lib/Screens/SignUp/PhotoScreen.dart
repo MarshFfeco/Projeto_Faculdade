@@ -34,17 +34,14 @@ class _PhotoScreenState extends State<PhotoScreen> {
   late CameraController _controller;
   late Future<void> _initializeControllerFuture;
 
-  void onNewCameraSelected(CameraDescription cameraDescription) async {
+  @override
+  void initState() {
+    super.initState();
+
     _controller = CameraController(
         widget.camera[widget.isFrontal ? 1 : 0], ResolutionPreset.high,
         imageFormatGroup: ImageFormatGroup.jpeg);
     _initializeControllerFuture = _controller.initialize();
-  }
-
-  @override
-  void initState() {
-    onNewCameraSelected(widget.camera[0]);
-    super.initState();
   }
 
   @override

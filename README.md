@@ -9,7 +9,9 @@ P O R T U G U Ê S
 
 - Tela de Cadastro(Incompleta)
 
-- Versão 0.0.6
+- Tela Principal(Incompleta)
+
+- Versão 0.0.7
 
 
 I N G L I S H
@@ -18,5 +20,7 @@ I N G L I S H
 
 - SignUp Screen(Inconplete)
 
-- Version 0.0.6
+- Main Screen(Incomplete)
+
+- Version 0.0.7
 
