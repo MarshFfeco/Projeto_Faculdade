@@ -1,3 +1,5 @@
+import 'package:fadba/Screens/MainPage/components/AdmCall.dart';
+import 'package:fadba/Screens/MainPage/components/NavBar.dart';
 import 'package:fadba/values/Custom_color.dart';
 import 'package:flutter/material.dart';
 
@@ -8,105 +10,23 @@ class MainPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
+    final azul = CustomColor().getCorPadraoAzul;
     return Scaffold(
+      drawer: const NavBar(),
       appBar: AppBar(
-        leading: IconButton(
-          icon: const Icon(
-            Icons.menu,
-            color: Colors.black,
-          ),
-          onPressed: () {},
-        ),
+        iconTheme: IconThemeData(color: azul),
         backgroundColor: Colors.white,
       ),
       body: ListView(children: [
         Container(
-          decoration: BoxDecoration(color: Colors.red),
+          decoration: const BoxDecoration(color: Colors.red),
           width: width * 0.5,
           height: height * 0.3,
         ),
-        Container(
-          width: width * 0.9,
-          height: height * 0.1,
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(25), color: Colors.blue),
-          child: Column(
-            children: [
-              const Text("Chamada"),
-              Row(
-                children: [
-                  Flexible(
-                    child: Container(
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(35)),
-                          color: Colors.green),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 4.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            CircleAvatar(
-                              backgroundColor: Colors.white,
-                              child: Icon(Icons.hail),
-                            ),
-                            Text(
-                              "Estudo",
-                              style: TextStyle(color: Colors.white),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                  Flexible(
-                    child: Container(
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(35)),
-                          color: Colors.black),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 4.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            CircleAvatar(
-                              backgroundColor: Colors.white,
-                              child: Icon(Icons.house),
-                            ),
-                            Text(
-                              "Capela",
-                              style: TextStyle(color: Colors.white),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                  Flexible(
-                    child: Container(
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(35)),
-                          color: Colors.yellow),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 4.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            CircleAvatar(
-                              backgroundColor: Colors.white,
-                              child: Icon(Icons.door_back_door),
-                            ),
-                            Text(
-                              "Quarto",
-                              style: TextStyle(color: Colors.white),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              )
-            ],
+        Center(
+          child: AdmCall(
+            height: height,
+            width: width,
           ),
         ),
         Container(
@@ -119,7 +39,7 @@ class MainPage extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.home),
         onPressed: () {},
-        backgroundColor: CustomColor().getCorPadraoAzul,
+        backgroundColor: azul,
       ),
       bottomNavigationBar: const BottomNavigation(),
     );

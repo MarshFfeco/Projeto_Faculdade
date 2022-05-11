@@ -9,9 +9,7 @@ main() {
   runApp(
     const MaterialApp(
       title: "F A D B A",
-      home: Scaffold(
-        body: MainPage(),
-      ),
+      home: MainPage(),
     ),
   );
 }
