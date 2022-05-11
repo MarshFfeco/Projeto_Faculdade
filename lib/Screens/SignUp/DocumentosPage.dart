@@ -100,70 +100,58 @@ class DisplayPictureScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        decoration: const BoxDecoration(color: Colors.white),
-        child: Stack(
-          children: [
-            SizedBox(
-              child: Center(child: Image.file(File(imagePath))),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Align(
-                  alignment: Alignment.bottomCenter,
-                  child: Padding(
-                    padding: const EdgeInsets.only(bottom: 20.0),
-                    child: CircleAvatar(
-                      radius: 32,
-                      backgroundColor: Colors.black,
-                      child: IconButton(
-                        onPressed: () => {
-                          if (photoPage == 3)
-                            {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => const LastPageSignUp(),
-                                ),
-                              ),
-                            }
-                          else
-                            {chamada(context, photoPage)}
-                        },
-                        icon: const Icon(
-                          Icons.check,
-                          color: Colors.greenAccent,
-                          size: 30,
+      body: Image.file(
+        File(imagePath),
+        fit: BoxFit.cover,
+        height: double.infinity,
+        width: double.infinity,
+      ),
+      bottomNavigationBar: BottomAppBar(
+        color: Colors.white,
+        child: Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              CircleAvatar(
+                backgroundColor: Colors.black,
+                radius: 32,
+                child: IconButton(
+                  onPressed: () {
+                    if (photoPage == 3) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const LastPageSignUp(),
                         ),
-                      ),
-                    ),
+                      );
+                    } else {
+                      chamada(context, photoPage);
+                    }
+                  },
+                  icon: const Icon(
+                    Icons.check,
+                    color: Colors.greenAccent,
+                    size: 30,
                   ),
                 ),
-                Align(
-                  alignment: Alignment.bottomCenter,
-                  child: Padding(
-                    padding: const EdgeInsets.only(bottom: 20.0),
-                    child: CircleAvatar(
-                      radius: 32,
-                      backgroundColor: Colors.black,
-                      child: IconButton(
-                        onPressed: () => Navigator.pop(context),
-                        icon: const Icon(
-                          Icons.close,
-                          color: Colors.redAccent,
-                          size: 30,
-                        ),
-                      ),
-                    ),
+              ),
+              CircleAvatar(
+                radius: 32,
+                backgroundColor: Colors.black,
+                child: IconButton(
+                  onPressed: () => Navigator.pop(context),
+                  icon: const Icon(
+                    Icons.close,
+                    color: Colors.redAccent,
+                    size: 30,
                   ),
-                )
-              ],
-            )
-          ],
+                ),
+              )
+            ],
+          ),
         ),
       ),
-
       //Image.file(File(imagePath)),
     );
   }
