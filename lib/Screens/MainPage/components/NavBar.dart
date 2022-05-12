@@ -7,12 +7,13 @@ class NavBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final azul = CustomColor().getCorPadraoAzul;
     return Drawer(
       child: ListView(
         children: [
           UserAccountsDrawerHeader(
-            accountName: const Text("Meu nome"),
-            accountEmail: const Text("adm@adm.com"),
+            accountName: const Text("Anderson Borba"),
+            accountEmail: const Text("GTI 5ª"),
             currentAccountPicture: CircleAvatar(
               child: ClipOval(
                 child: Image.network(
@@ -33,19 +34,32 @@ class NavBar extends StatelessWidget {
           ),
           ListTile(
             leading: Icon(
-              Icons.headphones,
-              color: CustomColor().getCorPadraoAzul,
+              Icons.admin_panel_settings,
+              color: azul,
             ),
-            title: const Text("Em Breve"),
+            title: const Text("Administração"),
             onTap: null,
           ),
           Divider(
-            color: CustomColor().getCorPadraoAzul,
+            color: azul,
+          ),
+          ListTile(
+            leading: Icon(Icons.person, color: azul),
+            title: const Text("Perfil"),
+            onTap: null,
+          ),
+          ListTile(
+            leading: Icon(Icons.circle_notifications, color: azul),
+            title: const Text("Notificação"),
+            onTap: null,
+          ),
+          Divider(
+            color: azul,
           ),
           ListTile(
             leading: Icon(
               Icons.exit_to_app,
-              color: CustomColor().getCorPadraoAzul,
+              color: azul,
             ),
             title: const Text("Sair"),
             onTap: () {

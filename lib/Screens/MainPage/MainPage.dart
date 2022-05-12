@@ -1,3 +1,5 @@
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:fadba/Screens/MainPage/Carousel.dart';
 import 'package:fadba/Screens/MainPage/components/AdmCall.dart';
 import 'package:fadba/Screens/MainPage/components/NavBar.dart';
 import 'package:fadba/values/Custom_color.dart';
@@ -18,10 +20,10 @@ class MainPage extends StatelessWidget {
         backgroundColor: Colors.white,
       ),
       body: ListView(children: [
-        Container(
-          decoration: const BoxDecoration(color: Colors.red),
+        SizedBox(
           width: width * 0.5,
           height: height * 0.3,
+          child: const Carousel(),
         ),
         Center(
           child: AdmCall(
@@ -33,19 +35,30 @@ class MainPage extends StatelessWidget {
           decoration: const BoxDecoration(color: Colors.green),
           width: double.infinity,
           height: height * 0.5,
+          child: Column(
+            children: const [
+              Align(
+                alignment: Alignment.topLeft,
+                child: Text(
+                  "BLOG",
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                ),
+              ),
+            ],
+          ),
         ),
       ]),
-      floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
+      /*floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.home),
         onPressed: () {},
         backgroundColor: azul,
       ),
-      bottomNavigationBar: const BottomNavigation(),
+      bottomNavigationBar: const BottomNavigation(),*/
     );
   }
 }
-
+/*
 class BottomNavigation extends StatelessWidget {
   const BottomNavigation({
     Key? key,
@@ -81,4 +94,4 @@ class BottomNavigation extends StatelessWidget {
       ),
     );
   }
-}
+}*/
