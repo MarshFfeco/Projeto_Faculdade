@@ -14,9 +14,9 @@ class _CarouselState extends State<Carousel> {
   final azul = CustomColor().getCorPadraoAzul;
   int activeIndex = 0;
   final urlImages = [
-    "assets/carousel/gato_1.jpg",
-    "assets/carousel/gato_2.jpg",
-    "assets/carousel/gato_3.jpg",
+    "assets/carousel/img_1.png",
+    "assets/carousel/img_2.jpg",
+    "assets/carousel/img_3.jpg",
   ];
   @override
   Widget build(BuildContext context) {

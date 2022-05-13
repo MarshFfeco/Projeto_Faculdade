@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:fadba/Screens/MainPage/Carousel.dart';
 import 'package:fadba/Screens/MainPage/components/AdmCall.dart';
+import 'package:fadba/Screens/MainPage/components/Article.dart';
+import 'package:fadba/Screens/MainPage/components/Carousel.dart';
 import 'package:fadba/Screens/MainPage/components/NavBar.dart';
 import 'package:fadba/values/Custom_color.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +22,7 @@ class MainPage extends StatelessWidget {
       ),
       body: ListView(children: [
         SizedBox(
-          width: width * 0.5,
+          width: double.infinity,
           height: height * 0.3,
           child: const Carousel(),
         ),
@@ -31,22 +32,11 @@ class MainPage extends StatelessWidget {
             width: width,
           ),
         ),
-        Container(
-          decoration: const BoxDecoration(color: Colors.green),
-          width: double.infinity,
-          height: height * 0.5,
-          child: Column(
-            children: const [
-              Align(
-                alignment: Alignment.topLeft,
-                child: Text(
-                  "BLOG",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-                ),
-              ),
-            ],
-          ),
-        ),
+        SizedBox(
+          height: height * 0.60,
+          width: width,
+          child: Blog(),
+        )
       ]),
       /*floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
       floatingActionButton: FloatingActionButton(

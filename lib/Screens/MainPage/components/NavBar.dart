@@ -53,6 +53,11 @@ class NavBar extends StatelessWidget {
             title: const Text("Notificação"),
             onTap: null,
           ),
+          ListTile(
+            leading: Icon(Icons.calendar_month, color: azul),
+            title: const Text("Calendário"),
+            onTap: null,
+          ),
           Divider(
             color: azul,
           ),

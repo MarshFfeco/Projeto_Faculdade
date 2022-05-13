@@ -1,5 +1,3 @@
-import 'package:fadba/Screens/SignUp/PhotoScreen.dart';
-import 'package:fadba/Screens/SignUp/SignUpScreen.dart';
 import 'package:flutter/material.dart';
 
 import 'Screens/FirstScreen/FirstScreen.dart';
