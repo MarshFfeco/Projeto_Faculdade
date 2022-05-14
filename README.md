@@ -11,7 +11,7 @@ P O R T U G U Ê S
 
 - Tela Principal(Incompleta)
 
-- Versão 0.1.0
+- Versão 0.1.1
 
 
 I N G L I S H
@@ -22,5 +22,5 @@ I N G L I S H
 
 - Main Screen(Incomplete)
 
-- Version 0.1.0
+- Version 0.1.1
 

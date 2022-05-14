@@ -20,27 +20,32 @@ class _CarouselState extends State<Carousel> {
   ];
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        CarouselSlider.builder(
-          itemCount: urlImages.length,
-          itemBuilder: (BuildContext context, int index, int realindex) {
-            final urlImage = urlImages[index];
+    final height = MediaQuery.of(context).size.height;
+    return Container(
+      width: double.infinity,
+      height: height * 0.3,
+      child: Stack(
+        children: [
+          CarouselSlider.builder(
+            itemCount: urlImages.length,
+            itemBuilder: (BuildContext context, int index, int realindex) {
+              final urlImage = urlImages[index];
 
-            return BuildImage(urlImage);
-          },
-          options: CarouselOptions(
-              enableInfiniteScroll: false,
-              autoPlay: true,
-              viewportFraction: 1,
-              onPageChanged: (index, reson) {
-                setState(() {
-                  activeIndex = index;
-                });
-              }),
-        ),
-        Buildidicator(),
-      ],
+              return BuildImage(urlImage);
+            },
+            options: CarouselOptions(
+                enableInfiniteScroll: false,
+                autoPlay: true,
+                viewportFraction: 1,
+                onPageChanged: (index, reson) {
+                  setState(() {
+                    activeIndex = index;
+                  });
+                }),
+          ),
+          Buildidicator(),
+        ],
+      ),
     );
   }
 

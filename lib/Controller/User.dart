@@ -1,4 +1,6 @@
 import 'dart:io';
+import 'package:flutter/material.dart';
+import 'package:get/get_state_manager/src/simple/list_notifier.dart';
 
 class User {
   User({
@@ -59,28 +61,42 @@ class User {
   };
 
   bool VerificarLogin(String login, String senha) {
-    if (login == usuarioLogin["email"] && senha == usuarioLogin["senha"]) {
-      return true;
-    } else {
+    if (login != usuarioLogin["email"] && senha != usuarioLogin["senha"]) {
       return false;
     }
+
+    return true;
   }
 
   Map VerificarCadastro() {
     dynamic usuarioCadastro = {
       "Nome": getNome,
       "Idade": getIdade,
-      "email": getEmail,
-      "senha": getSenha,
-      "sexo": getSexo,
-      "contatoAluno": getContatoAluno,
-      "contatoresponsavel": getContatoResponsavel,
-      "escolaridade": getEscolaridade,
-      "fotoPessoa": getFotopessoal,
-      "cpf": getCpf,
-      "rg": getRg,
+      "Email": getEmail,
+      "Senha": getSenha,
+      "Sexo": getSexo,
+      "ContatoAluno": getContatoAluno,
+      "Contatoresponsavel": getContatoResponsavel,
+      "Escolaridade": getEscolaridade,
+      "FotoPessoa": getFotopessoal,
+      "Cpf": getCpf,
+      "Rg": getRg,
     };
 
     return usuarioCadastro;
+  }
+}
+
+class admin {
+  List<Widget> _adds = [];
+
+  List<Widget> get getAdds => _adds;
+
+  void adicionaritem(Widget item) {
+    return _adds.add(item);
+  }
+
+  int pegartamanho() {
+    return _adds.length;
   }
 }
