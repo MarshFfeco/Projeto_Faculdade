@@ -1,6 +1,6 @@
 import 'dart:io';
+import 'package:fadba/Screens/MainPage/components/Article.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_state_manager/src/simple/list_notifier.dart';
 
 class User {
   User({
@@ -60,7 +60,7 @@ class User {
     "senha": "admin",
   };
 
-  bool VerificarLogin(String login, String senha) {
+  bool verificarLogin(String login, String senha) {
     if (login != usuarioLogin["email"] && senha != usuarioLogin["senha"]) {
       return false;
     }
@@ -68,7 +68,7 @@ class User {
     return true;
   }
 
-  Map VerificarCadastro() {
+  Map verificarCadastro() {
     dynamic usuarioCadastro = {
       "Nome": getNome,
       "Idade": getIdade,
@@ -87,16 +87,54 @@ class User {
   }
 }
 
-class admin {
-  List<Widget> _adds = [];
+class PrimareUser {
+  // PrimareUser({imagemCarousel}) : _imagemCaroseul = imagemCarousel;
+
+  final List<Widget> _adds = [
+    Article(
+      titulo: "Gatinhos",
+      conteudo: "Os gatos são incríveis!",
+      imagem: Image.network(
+        "https://i.pinimg.com/236x/b2/30/c1/b230c1e8cd503dff0a2f087daf499331--balinese-cat-siamese-kittens.jpg",
+        fit: BoxFit.fitHeight,
+      ),
+    ),
+    Article(
+      titulo: "Computadores",
+      conteudo: "Os computadores da Nasa",
+      imagem: Image.network(
+        "https://www.oficinadanet.com.br/imagens/post/24224/capa.jpg",
+        fit: BoxFit.fitHeight,
+      ),
+    ),
+    Article(
+      titulo: "Animes",
+      conteudo: "Recomendações de animes bons!",
+      imagem: Image.network(
+        "https://media1.giphy.com/media/a6pzK009rlCak/200.gif",
+        fit: BoxFit.fitHeight,
+      ),
+    ),
+  ].reversed.toList();
+
+  final List<String> _imagemCaroseul = [
+    "assets/carousel/img_1.png",
+    "assets/carousel/img_2.jpg",
+    "assets/carousel/img_3.jpg",
+  ];
 
   List<Widget> get getAdds => _adds;
+  List<String> get getImagemCaroseul => _imagemCaroseul;
 
-  void adicionaritem(Widget item) {
-    return _adds.add(item);
-  }
-
-  int pegartamanho() {
-    return _adds.length;
+  String pegarIndexcaroseul(index) {
+    return _imagemCaroseul[index];
   }
 }
+
+class Admin extends PrimareUser {
+  criarArticle(String titulo, String conteudo, Image imagem) {
+    _adds.add(Article(titulo: titulo, conteudo: conteudo, imagem: imagem));
+  }
+}
+
+class Estudante {}

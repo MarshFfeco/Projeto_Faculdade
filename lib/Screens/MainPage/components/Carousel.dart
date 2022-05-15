@@ -1,10 +1,14 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:fadba/Controller/User.dart';
 import 'package:fadba/values/Custom_color.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class Carousel extends StatefulWidget {
-  const Carousel({Key? key}) : super(key: key);
+  const Carousel({Key? key, required this.usuario}) : super(key: key);
+
+  // ignore: prefer_typing_uninitialized_variables
+  final usuario;
 
   @override
   State<Carousel> createState() => _CarouselState();
@@ -18,6 +22,7 @@ class _CarouselState extends State<Carousel> {
     "assets/carousel/img_2.jpg",
     "assets/carousel/img_3.jpg",
   ];
+
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
@@ -27,11 +32,11 @@ class _CarouselState extends State<Carousel> {
       child: Stack(
         children: [
           CarouselSlider.builder(
-            itemCount: urlImages.length,
+            itemCount: widget.usuario.getImagemCaroseul.length,
             itemBuilder: (BuildContext context, int index, int realindex) {
-              final urlImage = urlImages[index];
+              final images = widget.usuario.getImagemCaroseul[index];
 
-              return BuildImage(urlImage);
+              return buildImage(images);
             },
             options: CarouselOptions(
                 enableInfiniteScroll: false,
@@ -43,23 +48,23 @@ class _CarouselState extends State<Carousel> {
                   });
                 }),
           ),
-          Buildidicator(),
+          buildidicator(),
         ],
       ),
     );
   }
 
-  BuildImage(String urlImage) {
+  buildImage(String images) {
     return GestureDetector(
       onTap: null,
       child: Image.asset(
-        urlImage,
+        images,
         fit: BoxFit.cover,
       ),
     );
   }
 
-  Buildidicator() {
+  buildidicator() {
     return Align(
       alignment: Alignment.bottomRight,
       child: Padding(

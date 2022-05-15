@@ -4,11 +4,9 @@ import '../../../Controller/User.dart';
 import 'Article.dart';
 
 class Blog extends StatefulWidget {
-  Blog({Key? key, required this.usuario, required this.listaArticle})
-      : super(key: key);
+  Blog({Key? key, required this.usuario}) : super(key: key);
 
-  admin usuario;
-  List<Widget> listaArticle;
+  Admin usuario;
 
   @override
   State<Blog> createState() => _BlogState();
@@ -22,7 +20,7 @@ class _BlogState extends State<Blog> {
     return SizedBox(
       width: width,
       //height: height,
-      child: Column(children: widget.listaArticle),
+      child: Column(children: PrimareUser().getAdds),
     );
   }
 }

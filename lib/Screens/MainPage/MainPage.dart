@@ -16,7 +16,7 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  final admin usuario = admin();
+  final Admin usuario = Admin();
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
@@ -24,37 +24,13 @@ class _MainPageState extends State<MainPage> {
     final azul = CustomColor().getCorPadraoAzul;
 
     List<Widget> listaWidget = [
-      const Carousel(),
+      Carousel(
+        usuario: usuario,
+      ),
       Center(child: AdmCall(height: height, width: width)),
       const BlogText(),
       Blog(
         usuario: usuario,
-        listaArticle: [
-          Article(
-            titulo: "Gatinhos",
-            conteudo: "Os gatos são incríveis!",
-            imagem: Image.network(
-              "https://i.pinimg.com/236x/b2/30/c1/b230c1e8cd503dff0a2f087daf499331--balinese-cat-siamese-kittens.jpg",
-              fit: BoxFit.fitHeight,
-            ),
-          ),
-          Article(
-            titulo: "Computadores",
-            conteudo: "Os computadores da Nasa",
-            imagem: Image.network(
-              "https://www.oficinadanet.com.br/imagens/post/24224/capa.jpg",
-              fit: BoxFit.fitHeight,
-            ),
-          ),
-          Article(
-            titulo: "Animes",
-            conteudo: "Recomendações de animes bons!",
-            imagem: Image.network(
-              "https://media1.giphy.com/media/a6pzK009rlCak/200.gif",
-              fit: BoxFit.fitHeight,
-            ),
-          ),
-        ].reversed.toList(),
       ),
     ];
     return Scaffold(
