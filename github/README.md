@@ -70,27 +70,22 @@
 <pre>
 Anderson 
   ଲ( ⓛ ω ⓛ *)ଲ
-        <a hef="https://www.linkedin.com/in/anderson-borba-8861b91a2/">My linkedin</a>
 </pre>
 <pre>
 Adriel
   ଲ( ⓛ ω ⓛ *)ଲ 
-        <a hef="">My linkedin</a>
 </pre>
 <pre>
 Romulo 
   ଲ( ⓛ ω ⓛ *)ଲ 
-        <a hef="">My linkedin</a>
 </pre>
 <pre>
 João
   ଲ( ⓛ ω ⓛ *)ଲ 
-        <a hef="">My linkedin</a>
 </pre>
 <pre>
 Lucas
   ଲ( ⓛ ω ⓛ *)ଲ 
-        <a hef="">My linkedin</a>
 </pre>
 
 <br>
