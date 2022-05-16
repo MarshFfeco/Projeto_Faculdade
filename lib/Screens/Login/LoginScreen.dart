@@ -63,11 +63,11 @@ class _LoginScreenState extends State<LoginScreen> {
                       context: context,
                       builder: (BuildContext context) => AlertDialog(
                         title: const Text("Sua Senha"),
-                        content: const Text("Problema seu"),
+                        content: const Text("Em Desenvolvimento"),
                         actions: [
                           TextButton(
                               onPressed: () => Navigator.pop(context, 'Cancel'),
-                              child: const Text("OBG"))
+                              child: const Text("OK"))
                         ],
                       ),
                     );

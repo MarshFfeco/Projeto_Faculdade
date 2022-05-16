@@ -118,17 +118,13 @@ class PrimareUser {
   ].reversed.toList();
 
   final List<String> _imagemCaroseul = [
-    "assets/carousel/img_1.png",
-    "assets/carousel/img_2.jpg",
-    "assets/carousel/img_3.jpg",
+    "assets/carousel/fadba_carousel_1.png",
+    "assets/carousel/fadba_carousel_2.png",
+    "assets/carousel/fadba_carousel_3.png",
   ];
 
   List<Widget> get getAdds => _adds;
   List<String> get getImagemCaroseul => _imagemCaroseul;
-
-  String pegarIndexcaroseul(index) {
-    return _imagemCaroseul[index];
-  }
 }
 
 class Admin extends PrimareUser {

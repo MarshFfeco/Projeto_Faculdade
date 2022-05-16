@@ -2,8 +2,12 @@ import 'package:fadba/Screens/FirstScreen/FirstScreen.dart';
 import 'package:fadba/values/Custom_color.dart';
 import 'package:flutter/material.dart';
 
+import '../../../Controller/User.dart';
+
 class NavBar extends StatelessWidget {
-  const NavBar({Key? key}) : super(key: key);
+  const NavBar({Key? key, required this.usuario}) : super(key: key);
+
+  final usuario;
 
   @override
   Widget build(BuildContext context) {
@@ -32,31 +36,43 @@ class NavBar extends StatelessWidget {
                   fit: BoxFit.cover),
             ),
           ),
-          ListTile(
-            leading: Icon(
-              Icons.admin_panel_settings,
-              color: azul,
-            ),
-            title: const Text("Administração"),
-            onTap: null,
-          ),
-          Divider(
-            color: azul,
-          ),
+          usuario.runtimeType == Admin
+              ? ListTile(
+                  leading: Icon(
+                    Icons.admin_panel_settings,
+                    color: azul,
+                  ),
+                  title: const Text("Administração"),
+                  onTap: () {
+                    maisTarde(context, "Administração");
+                  },
+                )
+              : const SizedBox(),
+          usuario.runtimeType == Admin
+              ? Divider(
+                  color: azul,
+                )
+              : const SizedBox(),
           ListTile(
             leading: Icon(Icons.person, color: azul),
             title: const Text("Perfil"),
-            onTap: null,
+            onTap: () {
+              maisTarde(context, "Perfil");
+            },
           ),
           ListTile(
             leading: Icon(Icons.circle_notifications, color: azul),
             title: const Text("Notificação"),
-            onTap: null,
+            onTap: () {
+              maisTarde(context, "Notificação");
+            },
           ),
           ListTile(
             leading: Icon(Icons.calendar_month, color: azul),
             title: const Text("Calendário"),
-            onTap: null,
+            onTap: () {
+              maisTarde(context, "Calendario");
+            },
           ),
           Divider(
             color: azul,
@@ -92,6 +108,20 @@ class NavBar extends StatelessWidget {
               );
             },
           ),
+        ],
+      ),
+    );
+  }
+
+  Future<dynamic> maisTarde(BuildContext context, String titulo) {
+    return showDialog(
+      context: context,
+      builder: (BuildContext context) => AlertDialog(
+        title: Text(titulo),
+        content: const Text("Em desenvolvimento"),
+        actions: [
+          TextButton(
+              onPressed: () => Navigator.pop(context), child: const Text("Ok"))
         ],
       ),
     );

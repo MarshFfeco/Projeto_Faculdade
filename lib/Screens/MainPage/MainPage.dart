@@ -27,14 +27,18 @@ class _MainPageState extends State<MainPage> {
       Carousel(
         usuario: usuario,
       ),
-      Center(child: AdmCall(height: height, width: width)),
+      usuario.runtimeType == Admin
+          ? Center(child: AdmCall(height: height, width: width))
+          : const SizedBox(),
       const BlogText(),
       Blog(
         usuario: usuario,
       ),
     ];
     return Scaffold(
-        drawer: const NavBar(),
+        drawer: NavBar(
+          usuario: usuario,
+        ),
         appBar: AppBar(
           iconTheme: IconThemeData(color: azul),
           backgroundColor: Colors.white,

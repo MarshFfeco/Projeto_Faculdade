@@ -17,26 +17,23 @@ class Carousel extends StatefulWidget {
 class _CarouselState extends State<Carousel> {
   final azul = CustomColor().getCorPadraoAzul;
   int activeIndex = 0;
-  final urlImages = [
-    "assets/carousel/img_1.png",
-    "assets/carousel/img_2.jpg",
-    "assets/carousel/img_3.jpg",
-  ];
 
   @override
   Widget build(BuildContext context) {
+    int tamanhoLista = widget.usuario.getImagemCaroseul.length;
     final height = MediaQuery.of(context).size.height;
-    return Container(
+
+    return SizedBox(
       width: double.infinity,
       height: height * 0.3,
       child: Stack(
         children: [
           CarouselSlider.builder(
-            itemCount: widget.usuario.getImagemCaroseul.length,
+            itemCount: tamanhoLista,
             itemBuilder: (BuildContext context, int index, int realindex) {
-              final images = widget.usuario.getImagemCaroseul[index];
+              String images = widget.usuario.getImagemCaroseul[index];
 
-              return buildImage(images);
+              return buildImage(images, index);
             },
             options: CarouselOptions(
                 enableInfiniteScroll: false,
@@ -48,13 +45,13 @@ class _CarouselState extends State<Carousel> {
                   });
                 }),
           ),
-          buildidicator(),
+          buildidicator(tamanhoLista),
         ],
       ),
     );
   }
 
-  buildImage(String images) {
+  buildImage(String images, int index) {
     return GestureDetector(
       onTap: null,
       child: Image.asset(
@@ -64,14 +61,14 @@ class _CarouselState extends State<Carousel> {
     );
   }
 
-  buildidicator() {
+  buildidicator(int tamanhoLista) {
     return Align(
       alignment: Alignment.bottomRight,
       child: Padding(
         padding: const EdgeInsets.only(right: 8.0),
         child: AnimatedSmoothIndicator(
           activeIndex: activeIndex,
-          count: urlImages.length,
+          count: tamanhoLista,
           effect: WormEffect(
             dotColor: Colors.black12,
             activeDotColor: azul,

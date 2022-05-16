@@ -40,7 +40,9 @@ class AdmCall extends StatelessWidget {
                     iconCall: Icons.book,
                     name: "Estudo",
                     cor: CustomColor().getCorPadraoAzul,
-                    funcao: () => print("Clicou no estudo"),
+                    funcao: () {
+                      maisTardeAdmCall(context, "Estudo");
+                    },
                   ),
                 ),
                 Flexible(
@@ -48,7 +50,9 @@ class AdmCall extends StatelessWidget {
                     iconCall: Icons.church,
                     name: "Capela",
                     cor: CustomColor().getCorPadraoAzul,
-                    funcao: () => print("Clicou na capela"),
+                    funcao: () {
+                      maisTardeAdmCall(context, "Capela");
+                    },
                   ),
                 ),
                 Flexible(
@@ -56,12 +60,28 @@ class AdmCall extends StatelessWidget {
                     iconCall: Icons.bed,
                     name: "Quarto",
                     cor: CustomColor().getCorPadraoAzul,
-                    funcao: () => print("Clicou no quarto"),
+                    funcao: () {
+                      maisTardeAdmCall(context, "Estudo");
+                    },
                   ),
                 ),
               ],
             ),
           )
+        ],
+      ),
+    );
+  }
+
+  Future<dynamic> maisTardeAdmCall(BuildContext context, String titulo) {
+    return showDialog(
+      context: context,
+      builder: (BuildContext context) => AlertDialog(
+        title: Text(titulo),
+        content: const Text("Em desenvolvimento"),
+        actions: [
+          TextButton(
+              onPressed: () => Navigator.pop(context), child: const Text("Ok"))
         ],
       ),
     );

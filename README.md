@@ -2,14 +2,13 @@
 
 <p align="center">Projeto Faculdade</p>
 
-
 <p align="center"> -
-<a href="#features">Features</a> -
-<a href="#autor">Autor</a> -
-<a href="#preview">Preview</a> -
-<a href="#tecnologias">Tecnologias</a> -
-<a href="#autor">Autor</a> -
-<a href="#version">Version</a> -
+  <a href="#features">Features</a> -
+  <a href="#autor">Autor</a> -
+  <a href="#preview">Preview</a> -
+  <a href="#tecnologias">Tecnologias</a> -
+  <a href="#autor">Autor</a> -
+  <a href="#version">Version</a> -
 </p>
 
 ---
@@ -45,10 +44,10 @@
 
 # Preview
 <div style="margin: 50px">
-<img  alt="Primeira tela" title="primeira tela" src="GitHub\FirstScreen.gif" height="350px" />
-<img style=""  alt="Tela de cadastro" title="Tela de cadastro" src="GitHub\SignUp_Screen.jpeg" height="350px" />
-<img style=""  alt="Tela principal" title="Tela principal" src="GitHub\MainScreen.jpeg" height="350px" />
-<img style=""  alt="Tela principal" title="Tela principal" src="GitHub\MainScreen_gif.gif" height="350px" />
+  <img  alt="Primeira tela" title="primeira tela" src="GitHub\FirstScreen.gif" height="350px" />
+  <img style=""  alt="Tela de cadastro" title="Tela de cadastro" src="GitHub\SignUp_Screen.jpeg" height="350px" />
+  <img style=""  alt="Tela principal" title="Tela principal" src="GitHub\MainScreen.jpeg" height="350px" />
+  <img style=""  alt="Tela principal" title="Tela principal" src="GitHub\MainScreen_gif.gif" height="350px" />
 </div>
 
 
@@ -61,36 +60,51 @@
   - camera:
   - path_provider:
   - path:
-  - flutter_native_splash: ^2.1.6
-  - flutter_launcher_icons: ^0.9.2
+  - flutter_native_splash: 
+  - flutter_launcher_icons: 
   
 <br>
 
 # Autor
-<pre>
-Anderson 
+<p>
+  Adriel
+  <br>
   ଲ( ⓛ ω ⓛ *)ଲ
-</pre>
-<pre>
-Adriel
+  <br>
+  <a href="" >Linkedin </a>
+</p>
+<p style="margin-left: 30px">
+  Anderson
+  <br>
   ଲ( ⓛ ω ⓛ *)ଲ 
-</pre>
-<pre>
-Romulo 
+  <br>
+  <a href="https://www.linkedin.com/in/anderson-borba-8861b91a2/">Linkedin </a>
+</p>
+<p style="margin-left: 60px">
+  João
+  <br>
   ଲ( ⓛ ω ⓛ *)ଲ 
-</pre>
-<pre>
-João
+  <br>
+    <a href="#" >Linkedin </a>
+</p>
+<p style="margin-left: 90px">
+  Lucas
+  <br>
   ଲ( ⓛ ω ⓛ *)ଲ 
-</pre>
-<pre>
-Lucas
+  <br>
+  <a href="#" >Linkedin </a>
+</p>
+<p style="margin-left: 120px">
+  Romulo
+  <br>
   ଲ( ⓛ ω ⓛ *)ଲ 
-</pre>
+  <br>
+  <a href="#" >Linkedin </a>
+</p>
 
 <br>
 
 # Version
-- Version 0.1.2
+- Version 0.1.3
 
 
