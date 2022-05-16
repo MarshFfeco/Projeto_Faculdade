@@ -71,7 +71,7 @@
   <br>
   ଲ( ⓛ ω ⓛ *)ଲ
   <br>
-  <a href="" >Linkedin </a>
+  <a href="#" >Linkedin </a>
 </p>
 <p style="margin-left: 30px">
   Anderson
