@@ -4,7 +4,6 @@
 
 <p align="center"> -
   <a href="#features">Features</a> -
-  <a href="#autor">Autor</a> -
   <a href="#preview">Preview</a> -
   <a href="#tecnologias">Tecnologias</a> -
   <a href="#autor">Autor</a> -
