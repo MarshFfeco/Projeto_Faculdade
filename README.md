@@ -3,8 +3,8 @@
 <p align="center">Projeto Faculdade</p>
 
 <p align="center"> -
+  <a href="#sobre">Sobre</a> -
   <a href="#features">Features</a> -
-  <a href="#autor">Autor</a> -
   <a href="#preview">Preview</a> -
   <a href="#tecnologias">Tecnologias</a> -
   <a href="#autor">Autor</a> -
@@ -14,7 +14,12 @@
 ---
 <br>
 
+
 <h4 align="center">🏗️ PROJETO EM ANDAMENTO 🏗️</h4>
+
+<br>
+<br>
+<br>
 
 # Sobre
 <p>Aplicativo para o evento</p>
@@ -66,45 +71,30 @@
 <br>
 
 # Autor
-<p>
+<pre>
   Adriel
-  <br>
   ଲ( ⓛ ω ⓛ *)ଲ
-  <br>
-  <a href="#" >Linkedin </a>
-</p>
-<p style="margin-left: 30px">
-  Anderson
-  <br>
-  ଲ( ⓛ ω ⓛ *)ଲ 
-  <br>
-  <a href="https://www.linkedin.com/in/anderson-borba-8861b91a2/">Linkedin </a>
-</p>
-<p style="margin-left: 60px">
-  João
-  <br>
-  ଲ( ⓛ ω ⓛ *)ଲ 
-  <br>
-    <a href="#" >Linkedin </a>
-</p>
-<p style="margin-left: 90px">
-  Lucas
-  <br>
-  ଲ( ⓛ ω ⓛ *)ଲ 
-  <br>
-  <a href="#" >Linkedin </a>
-</p>
-<p style="margin-left: 120px">
-  Romulo
-  <br>
-  ଲ( ⓛ ω ⓛ *)ଲ 
-  <br>
-  <a href="#" >Linkedin </a>
-</p>
+</pre>
+<pre>
+      Anderson
+      ଲ( ⓛ ω ⓛ *)ଲ 
+</pre>
+<pre>
+          João
+          ଲ( ⓛ ω ⓛ *)ଲ 
+</pre>
+<pre>
+              Lucas
+              ଲ( ⓛ ω ⓛ *)ଲ 
+</pre>
+<pre>
+                  Rômulo
+                  ଲ( ⓛ ω ⓛ *)ଲ 
+</pre>
 
 <br>
 
 # Version
-- Version 0.1.3
+- Version 0.1.4
 
 

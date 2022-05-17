@@ -6,11 +6,14 @@ import 'package:fadba/components/CampoNumero.dart';
 import 'package:fadba/values/Custom_color.dart';
 import 'package:flutter/material.dart';
 
+import '../../Controller/User.dart';
 import '../../components/CampoConfirmaSenha.dart';
 import '../../components/CampoText.dart';
 
 class SignUpScreen extends StatefulWidget {
-  const SignUpScreen({Key? key}) : super(key: key);
+  const SignUpScreen({
+    Key? key,
+  }) : super(key: key);
 
   @override
   State<SignUpScreen> createState() => _SignUpScreenState();
@@ -18,6 +21,7 @@ class SignUpScreen extends StatefulWidget {
 
 class _SignUpScreenState extends State<SignUpScreen> {
   final _formKey = GlobalKey<FormState>();
+  final UserCadastro usuario = UserCadastro();
 
   GlobalKey get getFormKey {
     return _formKey;
@@ -68,7 +72,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           CampoTexto(
                               hinText: 'Nome Completo',
                               altura: alturaCampo,
-                              textInputType: TextInputType.name),
+                              textInputType: TextInputType.name,
+                              valorCadastrado: "comida"),
                           const Divider(),
                           CampoData(
                             textInputType: TextInputType.datetime,
@@ -95,9 +100,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               dropValue: "Feminino"),
                           const Divider(),
                           CampoTexto(
-                              hinText: 'Email',
-                              altura: alturaCampo,
-                              textInputType: TextInputType.emailAddress),
+                            hinText: 'Email',
+                            altura: alturaCampo,
+                            textInputType: TextInputType.emailAddress,
+                            valorCadastrado: "comida",
+                          ),
                           const Divider(),
                           const SenhaRepetiSenha(),
                         ],

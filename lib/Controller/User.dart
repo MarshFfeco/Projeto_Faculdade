@@ -2,8 +2,64 @@ import 'dart:io';
 import 'package:fadba/Screens/MainPage/components/Article.dart';
 import 'package:flutter/material.dart';
 
-class User {
-  User({
+abstract class User {
+  bool verificarLogin(
+      String login, String senha, String lCadastrado, String sCadastrado) {
+    if (login != lCadastrado && senha != sCadastrado) {
+      return false;
+    }
+
+    return true;
+  }
+
+  Map verificarCadastro(
+      String nome,
+      int idade,
+      String email,
+      String senha,
+      String sexo,
+      int cAluno,
+      int cResponsavel,
+      int escolaridade,
+      File cpf,
+      File rg,
+      File fPessoal) {
+    dynamic usuarioCadastro = {
+      "Nome": nome,
+      "Idade": idade,
+      "Email": email,
+      "Senha": senha,
+      "Sexo": sexo,
+      "ContatoAluno": cAluno,
+      "Contatoresponsavel": cResponsavel,
+      "Escolaridade": escolaridade,
+      "FotoPessoa": fPessoal,
+      "Cpf": cpf,
+      "Rg": rg,
+    };
+
+    return usuarioCadastro;
+  }
+}
+
+class UserLogin extends User {
+  Map _usuarioLoginCadastrado = {
+    "email": "admin@admin.com",
+    "senha": "admin",
+  };
+
+  Map get getUsuarioLoginCadastrado => _usuarioLoginCadastrado;
+
+  bool verificar(String login, String senha) {
+    String lCadastrado = _usuarioLoginCadastrado["email"];
+    String sCadastrado = _usuarioLoginCadastrado["senha"];
+
+    return super.verificarLogin(login, senha, lCadastrado, sCadastrado);
+  }
+}
+
+class UserCadastro extends User {
+  UserCadastro({
     nome,
     email,
     contatoAluno,
@@ -54,37 +110,6 @@ class User {
   get getRg => _rg;
   set setFotoPessoal(File fotoPessoal) => _fotoPessoal = fotoPessoal;
   get getFotopessoal => _fotoPessoal;
-
-  dynamic usuarioLogin = {
-    "email": "admin@admin.com",
-    "senha": "admin",
-  };
-
-  bool verificarLogin(String login, String senha) {
-    if (login != usuarioLogin["email"] && senha != usuarioLogin["senha"]) {
-      return false;
-    }
-
-    return true;
-  }
-
-  Map verificarCadastro() {
-    dynamic usuarioCadastro = {
-      "Nome": getNome,
-      "Idade": getIdade,
-      "Email": getEmail,
-      "Senha": getSenha,
-      "Sexo": getSexo,
-      "ContatoAluno": getContatoAluno,
-      "Contatoresponsavel": getContatoResponsavel,
-      "Escolaridade": getEscolaridade,
-      "FotoPessoa": getFotopessoal,
-      "Cpf": getCpf,
-      "Rg": getRg,
-    };
-
-    return usuarioCadastro;
-  }
 }
 
 class PrimareUser {

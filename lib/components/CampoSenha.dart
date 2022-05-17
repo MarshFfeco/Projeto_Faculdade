@@ -3,18 +3,22 @@ import 'package:flutter/material.dart';
 import '../../values/Custom_color.dart';
 
 class CampoSenha extends StatefulWidget {
-  const CampoSenha({
-    Key? key,
-    required this.hinText,
-    required this.keyBoardType,
-    required this.altura,
-    required this.pass,
-  }) : super(key: key);
+  const CampoSenha(
+      {Key? key,
+      required this.hinText,
+      required this.keyBoardType,
+      required this.altura,
+      required this.pass,
+      this.login = false,
+      required this.valorCadastrado})
+      : super(key: key);
 
   final String hinText;
   final TextInputType keyBoardType;
   final double altura;
   final TextEditingController pass;
+  final bool login;
+  final valorCadastrado;
 
   @override
   State<CampoSenha> createState() => _CampoSenhaState();
@@ -56,6 +60,11 @@ class _CampoSenhaState extends State<CampoSenha> {
             validator: (value) {
               if (value == null || value.isEmpty) {
                 return "Campo Vazio";
+              }
+              if (widget.login) {
+                if (value != widget.valorCadastrado) {
+                  return "Incorreto";
+                }
               }
               return null;
             },

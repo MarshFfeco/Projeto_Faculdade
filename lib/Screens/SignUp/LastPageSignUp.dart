@@ -1,8 +1,8 @@
-import 'package:fadba/Screens/MainPage/MainPage.dart';
 import 'package:fadba/components/arrasta.dart';
 import 'package:flutter/material.dart';
 
 import '../../values/Custom_color.dart';
+import '../Login/LoginScreen.dart';
 
 class LastPageSignUp extends StatelessWidget {
   const LastPageSignUp({Key? key}) : super(key: key);
@@ -44,7 +44,7 @@ class LastPageSignUp extends StatelessWidget {
               flex: 3,
               child: Arrasta(
                   excluirHistorico: true,
-                  instancia: MainPage(),
+                  instancia: LoginScreen(),
                   imagem: "assets/img/passIcon_SignUpScrenn.png"),
             )
           ],

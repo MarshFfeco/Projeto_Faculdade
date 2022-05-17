@@ -7,12 +7,16 @@ class CampoTexto extends StatefulWidget {
       {Key? key,
       required this.hinText,
       required this.textInputType,
-      required this.altura})
+      required this.altura,
+      required this.valorCadastrado,
+      this.login = false})
       : super(key: key);
 
   final String hinText;
   final TextInputType textInputType;
   final double altura;
+  final valorCadastrado;
+  final bool login;
 
   @override
   State<CampoTexto> createState() => _CampoTextoState();
@@ -52,9 +56,15 @@ class _CampoTextoState extends State<CampoTexto> {
           validator: (value) {
             if (value == null || value.isEmpty) {
               return "Campo vazio";
-            } else {
-              return null;
             }
+
+            if (widget.login) {
+              if (value != widget.valorCadastrado) {
+                return "Iconrreto";
+              }
+            }
+
+            return null;
           }),
     );
   }

@@ -1,3 +1,4 @@
+import 'package:fadba/Controller/User.dart';
 import 'package:fadba/components/Formulario.dart';
 import 'package:fadba/values/Custom_color.dart';
 import 'package:flutter/material.dart';
@@ -18,6 +19,7 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _pass = TextEditingController();
+  final UserLogin usuario = UserLogin();
 
   GlobalKey get getFormKey {
     return _formKey;
@@ -45,9 +47,12 @@ class _LoginScreenState extends State<LoginScreen> {
                   flex: 2,
                 ),
                 CampoTexto(
-                    hinText: "Usuário ou Email",
-                    textInputType: TextInputType.emailAddress,
-                    altura: alturaCampo),
+                  hinText: "Usuário ou Email",
+                  textInputType: TextInputType.emailAddress,
+                  altura: alturaCampo,
+                  valorCadastrado: usuario.getUsuarioLoginCadastrado["email"],
+                  login: true,
+                ),
                 const Spacer(
                   flex: 2,
                 ),
@@ -56,6 +61,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   keyBoardType: TextInputType.visiblePassword,
                   altura: alturaCampo,
                   pass: _pass,
+                  login: true,
+                  valorCadastrado: usuario.getUsuarioLoginCadastrado["senha"],
                 ),
                 TextButton(
                   onPressed: () {
