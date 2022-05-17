@@ -66,41 +66,26 @@
 <br>
 
 # Autor
-<p>
+<pre>
   Adriel
-  <br>
   ଲ( ⓛ ω ⓛ *)ଲ
-  <br>
-  <a href="#" >Linkedin </a>
-</p>
-<p style="margin-left: 30px">
+</pre>
+<pre>
   Anderson
-  <br>
   ଲ( ⓛ ω ⓛ *)ଲ 
-  <br>
-  <a href="https://www.linkedin.com/in/anderson-borba-8861b91a2/">Linkedin </a>
-</p>
-<p style="margin-left: 60px">
+</pre>
+<pre >
   João
-  <br>
   ଲ( ⓛ ω ⓛ *)ଲ 
-  <br>
-    <a href="#" >Linkedin </a>
-</p>
-<p style="margin-left: 90px">
+</pre>
+<pre>
   Lucas
-  <br>
   ଲ( ⓛ ω ⓛ *)ଲ 
-  <br>
-  <a href="#" >Linkedin </a>
-</p>
-<p style="margin-left: 120px">
+</pre>
+<pre>
   Romulo
-  <br>
   ଲ( ⓛ ω ⓛ *)ଲ 
-  <br>
-  <a href="#" >Linkedin </a>
-</p>
+</pre>
 
 <br>
 
