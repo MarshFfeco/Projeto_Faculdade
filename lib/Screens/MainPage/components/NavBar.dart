@@ -1,3 +1,4 @@
+import 'package:fadba/Screens/AdmScreen/AdmScreen.dart';
 import 'package:fadba/Screens/FirstScreen/FirstScreen.dart';
 import 'package:fadba/values/Custom_color.dart';
 import 'package:flutter/material.dart';
@@ -44,7 +45,8 @@ class NavBar extends StatelessWidget {
                   ),
                   title: const Text("Administração"),
                   onTap: () {
-                    maisTarde(context, "Administração");
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => AdmScreen()));
                   },
                 )
               : const SizedBox(),
