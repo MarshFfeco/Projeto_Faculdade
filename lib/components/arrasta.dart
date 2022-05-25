@@ -1,3 +1,4 @@
+import 'package:fadba/Controller/User.dart';
 import 'package:fadba/Screens/MainPage/MainPage.dart';
 import 'package:flutter/material.dart';
 
@@ -36,7 +37,10 @@ class _ArrastaState extends State<Arrasta> {
           } else if (direction == DismissDirection.startToEnd &&
               widget.excluirHistorico == true) {
             Navigator.of(context).pushAndRemoveUntil(
-                MaterialPageRoute(builder: (context) => MainPage()),
+                MaterialPageRoute(
+                    builder: (context) => MainPage(
+                          usuario: Admin(),
+                        )),
                 (Route<dynamic> route) => false);
           } else if (direction == DismissDirection.endToStart) {
             Navigator.pop(context);

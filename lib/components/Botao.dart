@@ -1,3 +1,4 @@
+import 'package:fadba/Controller/User.dart';
 import 'package:fadba/Screens/MainPage/MainPage.dart';
 import 'package:fadba/Screens/SignUp/SignUpScreen.dart';
 import 'package:flutter/material.dart';
@@ -36,7 +37,9 @@ class Botao extends StatelessWidget {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: ((context) => const MainPage())));
+                                  builder: ((context) => MainPage(
+                                        usuario: Admin(),
+                                      ))));
                         },
                         child: const Text("OK")),
                     TextButton(

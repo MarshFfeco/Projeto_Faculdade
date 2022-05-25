@@ -9,14 +9,15 @@ import 'components/Article.dart';
 import 'components/Blog.dart';
 
 class MainPage extends StatefulWidget {
-  const MainPage({Key? key}) : super(key: key);
+  MainPage({Key? key, required this.usuario}) : super(key: key);
+
+  final usuario;
 
   @override
   State<MainPage> createState() => _MainPageState();
 }
 
 class _MainPageState extends State<MainPage> {
-  final Admin usuario = Admin();
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
@@ -25,19 +26,17 @@ class _MainPageState extends State<MainPage> {
 
     List<Widget> listaWidget = [
       Carousel(
-        usuario: usuario,
+        usuario: widget.usuario,
       ),
-      usuario.runtimeType == Admin
+      widget.usuario.runtimeType == Admin
           ? Center(child: AdmCall(height: height, width: width))
           : const SizedBox(),
       const BlogText(),
-      Blog(
-        usuario: usuario,
-      ),
+      Blog(),
     ];
     return Scaffold(
         drawer: NavBar(
-          usuario: usuario,
+          usuario: widget.usuario,
         ),
         appBar: AppBar(
           iconTheme: IconThemeData(color: azul),

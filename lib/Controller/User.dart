@@ -43,6 +43,7 @@ abstract class User {
 }
 
 class UserLogin extends User {
+  //List<Map> _usuarioLoginCadastro = [];
   Map _usuarioLoginCadastrado = {
     "email": "admin@admin.com",
     "senha": "admin",
@@ -140,12 +141,30 @@ class PrimareUser {
         fit: BoxFit.fitHeight,
       ),
     ),
+    Article(
+      titulo: "Academia",
+      conteudo: "Como ficar trincado em 30 segundos!",
+      imagem: Image.network(
+        "https://www.inspirationde.com/media/2014/04/steelcorefitness-13980232054k8gn-235x354.jpg",
+        fit: BoxFit.cover,
+      ),
+    ),
+    Article(
+      titulo: "Filme",
+      conteudo:
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      imagem: Image.network(
+        "https://www.inspirationde.com/media/2022/02/Neon-sci-fi-character-illustration-by-Pascal-Blanche-235x354.jpg",
+        fit: BoxFit.cover,
+      ),
+    ),
   ].reversed.toList();
 
   final List<String> _imagemCaroseul = [
     "assets/carousel/fadba_carousel_1.png",
     "assets/carousel/fadba_carousel_2.png",
     "assets/carousel/fadba_carousel_3.png",
+    "assets/carousel/QrCode.jpeg"
   ];
 
   List<Widget> get getAdds => _adds;

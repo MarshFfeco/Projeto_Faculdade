@@ -1,3 +1,4 @@
+import 'package:fadba/Controller/User.dart';
 import 'package:flutter/material.dart';
 
 import 'Screens/AdmScreen/AdmScreen.dart';
@@ -6,9 +7,11 @@ import 'Screens/MainPage/MainPage.dart';
 
 main() {
   runApp(
-    const MaterialApp(
+    MaterialApp(
       title: "F A D B A",
-      home: MainPage(),
+      home: MainPage(
+        usuario: Admin(),
+      ),
     ),
   );
 }

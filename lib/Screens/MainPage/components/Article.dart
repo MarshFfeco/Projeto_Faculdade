@@ -59,6 +59,8 @@ class Article extends StatelessWidget {
                     ),
                     Text(
                       conteudo,
+                      maxLines: 5,
+                      overflow: TextOverflow.ellipsis,
                       style: const TextStyle(fontSize: 12),
                     ),
                     const Align(

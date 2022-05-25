@@ -4,9 +4,9 @@ import '../../../Controller/User.dart';
 import 'Article.dart';
 
 class Blog extends StatefulWidget {
-  Blog({Key? key, required this.usuario}) : super(key: key);
-
-  Admin usuario;
+  Blog({
+    Key? key,
+  }) : super(key: key);
 
   @override
   State<Blog> createState() => _BlogState();
