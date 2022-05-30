@@ -1,12 +1,15 @@
 import 'dart:ui';
 
+import 'package:fadba/Controller/User.dart';
 import 'package:fadba/Screens/MainPage/components/NavBar.dart';
 import 'package:flutter/material.dart';
 
 import '../../values/Custom_color.dart';
 
 class PerfilScreen extends StatefulWidget {
-  PerfilScreen({Key? key}) : super(key: key);
+  const PerfilScreen({Key? key, required this.user}) : super(key: key);
+
+  final PrimareUser user;
 
   @override
   State<PerfilScreen> createState() => _PerfilScreenState();
@@ -24,54 +27,48 @@ class _PerfilScreenState extends State<PerfilScreen> {
         elevation: 0,
         leading: IconButton(
           onPressed: (() => Navigator.pop(context)),
-          icon: const Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back_ios),
           color: azul,
         ),
       ),
-      body: Container(
-        height: height,
-        width: width,
-        child: Column(
-          children: [
-            MyInformation(height: height, width: width),
-            Divider(color: azul, thickness: 1.0),
-            Expanded(
-              child: Column(
-                children: [
-                  Expanded(
-                      flex: 2,
-                      child: Container(
-                          decoration: BoxDecoration(
-                              color: Color.fromARGB(255, 21, 87, 107)))),
-                  Expanded(
-                      flex: 3,
-                      child: Container(
-                          decoration: BoxDecoration(
-                              color: Color.fromARGB(255, 9, 10, 10))))
-                ],
-              ),
+      body: Column(
+        children: [
+          MyInformation(
+            height: height,
+            width: width,
+            user: widget.user,
+          ),
+          Divider(color: azul, thickness: 1.0),
+          Expanded(
+            child: Column(
+              children: [
+                Expanded(
+                    child: Container(
+                        decoration: const BoxDecoration(color: Colors.white))),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
 }
 
 class MyInformation extends StatelessWidget {
-  const MyInformation({
-    Key? key,
-    required this.height,
-    required this.width,
-  }) : super(key: key);
+  const MyInformation(
+      {Key? key, required this.height, required this.width, required this.user})
+      : super(key: key);
 
   final double height;
   final double width;
+  final PrimareUser user;
 
   @override
   Widget build(BuildContext context) {
+    final double limite = user.runtimeType == Admin ? 0.40 : 0.35;
+
     return SizedBox(
-      height: height * 0.35,
+      height: height * limite,
       width: width,
       child: Column(
         children: [
@@ -98,21 +95,42 @@ class MyInformation extends StatelessWidget {
               alignment: Alignment.bottomCenter,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
-                  Text(
-                    "Mariana Pereira da Silva",
+                children: [
+                  const Text(
+                    "Anderson Borba",
                     style: TextStyle(fontSize: 18),
                   ),
                   Icon(
                     Icons.person,
                     size: 15,
+                    color: CustomColor().getCorPadraoAzul,
                   )
                 ],
               ),
             ),
           ),
+          user.runtimeType == Admin
+              ? Expanded(
+                  child: Align(
+                    alignment: Alignment.center,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text(
+                          "Administrador",
+                          style: TextStyle(fontSize: 15),
+                        ),
+                        Icon(
+                          Icons.shield,
+                          size: 15,
+                          color: CustomColor().getCorPadraoAzul,
+                        )
+                      ],
+                    ),
+                  ),
+                )
+              : const SizedBox(),
           const Expanded(
-            flex: 1,
             child: Align(
               alignment: Alignment.center,
               child: Text(
@@ -121,8 +139,43 @@ class MyInformation extends StatelessWidget {
               ),
             ),
           ),
+          user.runtimeType == Admin
+              ? Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 10.0),
+                  child: Expanded(
+                    child: GestureDetector(
+                      onTap: (() => maisTarde(context, "QR Code")),
+                      child: Container(
+                          decoration: BoxDecoration(
+                              color: CustomColor().getCorPadraoAzul,
+                              borderRadius: BorderRadius.circular(20.0)),
+                          child: const Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Text(
+                              "Escanear QR Code",
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          )),
+                    ),
+                  ),
+                )
+              : const SizedBox()
         ],
       ),
     );
   }
+}
+
+Future<dynamic> maisTarde(BuildContext context, String titulo) {
+  return showDialog(
+    context: context,
+    builder: (BuildContext context) => AlertDialog(
+      title: Text(titulo),
+      content: const Text("Em desenvolvimento"),
+      actions: [
+        TextButton(
+            onPressed: () => Navigator.pop(context), child: const Text("Ok"))
+      ],
+    ),
+  );
 }

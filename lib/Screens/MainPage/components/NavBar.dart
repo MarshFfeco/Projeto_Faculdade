@@ -9,7 +9,7 @@ import '../../../Controller/User.dart';
 class NavBar extends StatelessWidget {
   const NavBar({Key? key, required this.usuario}) : super(key: key);
 
-  final usuario;
+  final PrimareUser usuario;
 
   @override
   Widget build(BuildContext context) {
@@ -54,8 +54,12 @@ class NavBar extends StatelessWidget {
             leading: Icon(Icons.person, color: azul),
             title: const Text("Perfil"),
             onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: ((context) => PerfilScreen())));
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: ((context) => PerfilScreen(
+                            user: usuario,
+                          ))));
             },
           ),
           ListTile(

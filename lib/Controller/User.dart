@@ -177,4 +177,4 @@ class Admin extends PrimareUser {
   }
 }
 
-class Estudante {}
+class Estudante extends PrimareUser {}

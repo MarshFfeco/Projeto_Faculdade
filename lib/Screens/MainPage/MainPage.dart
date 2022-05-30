@@ -9,9 +9,9 @@ import 'components/Article.dart';
 import 'components/Blog.dart';
 
 class MainPage extends StatefulWidget {
-  MainPage({Key? key, required this.usuario}) : super(key: key);
+  const MainPage({Key? key, required this.usuario}) : super(key: key);
 
-  final usuario;
+  final PrimareUser usuario;
 
   @override
   State<MainPage> createState() => _MainPageState();
