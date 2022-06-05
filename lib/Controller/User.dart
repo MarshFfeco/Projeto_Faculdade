@@ -47,6 +47,7 @@ class UserLogin extends User {
   Map _usuarioLoginCadastrado = {
     "email": "admin@admin.com",
     "senha": "admin",
+    "typeUser": "admin",
   };
 
   Map get getUsuarioLoginCadastrado => _usuarioLoginCadastrado;
@@ -164,7 +165,6 @@ class PrimareUser {
     "assets/carousel/fadba_carousel_1.png",
     "assets/carousel/fadba_carousel_2.png",
     "assets/carousel/fadba_carousel_3.png",
-    "assets/carousel/QrCode.jpeg"
   ];
 
   List<Widget> get getAdds => _adds;

@@ -24,6 +24,9 @@ class _PerfilScreenState extends State<PerfilScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
+        actions: widget.user.runtimeType == Admin
+            ? [IconButton(onPressed: null, icon: Icon(Icons.qr_code))]
+            : [],
         elevation: 0,
         leading: IconButton(
           onPressed: (() => Navigator.pop(context)),
@@ -54,7 +57,7 @@ class _PerfilScreenState extends State<PerfilScreen> {
   }
 }
 
-class MyInformation extends StatelessWidget {
+class MyInformation extends StatefulWidget {
   const MyInformation(
       {Key? key, required this.height, required this.width, required this.user})
       : super(key: key);
@@ -64,12 +67,19 @@ class MyInformation extends StatelessWidget {
   final PrimareUser user;
 
   @override
+  State<MyInformation> createState() => _MyInformationState();
+}
+
+class _MyInformationState extends State<MyInformation> {
+  @override
   Widget build(BuildContext context) {
-    final double limite = user.runtimeType == Admin ? 0.40 : 0.35;
+    final double limite = widget.user.runtimeType == Admin ? 0.40 : 0.35;
+
+    String sticker = '';
 
     return SizedBox(
-      height: height * limite,
-      width: width,
+      height: widget.height * limite,
+      width: widget.width,
       child: Column(
         children: [
           Expanded(
@@ -109,7 +119,7 @@ class MyInformation extends StatelessWidget {
               ),
             ),
           ),
-          user.runtimeType == Admin
+          widget.user.runtimeType == Admin
               ? Expanded(
                   child: Align(
                     alignment: Alignment.center,
@@ -139,12 +149,12 @@ class MyInformation extends StatelessWidget {
               ),
             ),
           ),
-          user.runtimeType == Admin
+          widget.user.runtimeType == Admin
               ? Padding(
                   padding: const EdgeInsets.symmetric(vertical: 10.0),
                   child: Expanded(
                     child: GestureDetector(
-                      onTap: (() => maisTarde(context, "QR Code")),
+                      onTap: (() => maisTarde(context, "QrCode")),
                       child: Container(
                           decoration: BoxDecoration(
                               color: CustomColor().getCorPadraoAzul,

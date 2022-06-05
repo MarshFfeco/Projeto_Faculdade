@@ -62,19 +62,16 @@ class _CarouselState extends State<Carousel> {
   }
 
   buildidicator(int tamanhoLista) {
-    return Align(
-      alignment: Alignment.bottomRight,
-      child: Padding(
-        padding: const EdgeInsets.only(right: 8.0),
-        child: AnimatedSmoothIndicator(
-          activeIndex: activeIndex,
-          count: tamanhoLista,
-          effect: WormEffect(
-            dotColor: Colors.black12,
-            activeDotColor: azul,
-            dotHeight: 10,
-            dotWidth: 10,
-          ),
+    return Padding(
+      padding: const EdgeInsets.only(top: 8.0, left: 8.0),
+      child: AnimatedSmoothIndicator(
+        activeIndex: activeIndex,
+        count: tamanhoLista,
+        effect: const WormEffect(
+          dotColor: Colors.black,
+          activeDotColor: Colors.white,
+          dotHeight: 10,
+          dotWidth: 10,
         ),
       ),
     );

@@ -5,6 +5,7 @@ import 'package:fadba/Screens/MainPage/components/NavBar.dart';
 import 'package:fadba/values/Custom_color.dart';
 import 'package:flutter/material.dart';
 
+import '../PerfilScreen/MainPerfilScreen.dart';
 import 'components/Article.dart';
 import 'components/Blog.dart';
 
@@ -35,49 +36,38 @@ class _MainPageState extends State<MainPage> {
       Blog(),
     ];
     return Scaffold(
-        drawer: NavBar(
-          usuario: widget.usuario,
+      drawer: NavBar(
+        usuario: widget.usuario,
+      ),
+      appBar: AppBar(
+        iconTheme: IconThemeData(color: azul),
+        backgroundColor: Colors.white,
+      ),
+      body: Scrollbar(
+        child: ListView.builder(
+          itemCount: listaWidget.length,
+          itemBuilder: (context, index) => listaWidget[index],
         ),
-        appBar: AppBar(
-          iconTheme: IconThemeData(color: azul),
-          backgroundColor: Colors.white,
-        ),
-        body: Scrollbar(
-          child: ListView.builder(
-            itemCount: listaWidget.length,
-            itemBuilder: (context, index) => listaWidget[index],
-          ),
-        ));
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
+      floatingActionButton: FloatingActionButton(
+        child: const Icon(Icons.message),
+        onPressed: () {
+          maisTarde(context, "Menssagem");
+        },
+        backgroundColor: azul,
+      ),
+      bottomNavigationBar: BottomNavigation(
+        usuario: widget.usuario,
+      ),
+    );
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      /*floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
-      floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.home),
-        onPressed: () {},
-        backgroundColor: azul,
-      ),
-      bottomNavigationBar: const BottomNavigation(),*/
-/*
 class BottomNavigation extends StatelessWidget {
-  const BottomNavigation({
-    Key? key,
-  }) : super(key: key);
+  const BottomNavigation({Key? key, required this.usuario}) : super(key: key);
+
+  final PrimareUser usuario;
 
   @override
   Widget build(BuildContext context) {
@@ -88,25 +78,49 @@ class BottomNavigation extends StatelessWidget {
         data: const IconThemeData(color: Colors.black54),
         child: Padding(
           padding: const EdgeInsets.all(12.00),
-          child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: const [
-                Icon(
-                  Icons.circle_outlined,
-                ),
-                Icon(
-                  Icons.notifications_active,
-                ),
-                Icon(
-                  Icons.book_outlined,
-                ),
-                Icon(
-                  Icons.calendar_month_outlined,
-                ),
-                SizedBox(width: 20)
-              ]),
+          child:
+              Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
+            IconButton(
+              icon: const Icon(Icons.circle),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: ((context) => PerfilScreen(
+                              user: usuario,
+                            ))));
+              },
+            ),
+            IconButton(
+              icon: const Icon(Icons.notifications_active),
+              onPressed: () => maisTarde(context, "Notificação"),
+            ),
+            IconButton(
+              icon: const Icon(Icons.book_outlined),
+              onPressed: () => maisTarde(context, "Regras"),
+            ),
+            IconButton(
+              icon: const Icon(Icons.calendar_month_outlined),
+              onPressed: () => maisTarde(context, "calendario"),
+            ),
+            const SizedBox(width: 20)
+          ]),
         ),
       ),
     );
   }
-}*/
+}
+
+Future<dynamic> maisTarde(BuildContext context, String titulo) {
+  return showDialog(
+    context: context,
+    builder: (BuildContext context) => AlertDialog(
+      title: Text(titulo),
+      content: const Text("Em desenvolvimento"),
+      actions: [
+        TextButton(
+            onPressed: () => Navigator.pop(context), child: const Text("Ok"))
+      ],
+    ),
+  );
+}
