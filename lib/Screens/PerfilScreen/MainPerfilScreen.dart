@@ -1,8 +1,7 @@
-import 'dart:ui';
-
 import 'package:fadba/Controller/User.dart';
 import 'package:fadba/Screens/MainPage/components/NavBar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 
 import '../../values/Custom_color.dart';
 
@@ -46,8 +45,10 @@ class _PerfilScreenState extends State<PerfilScreen> {
             child: Column(
               children: [
                 Expanded(
-                    child: Container(
-                        decoration: const BoxDecoration(color: Colors.white))),
+                  child: Container(
+                    decoration: const BoxDecoration(color: Colors.white),
+                  ),
+                ),
               ],
             ),
           ),
@@ -71,6 +72,20 @@ class MyInformation extends StatefulWidget {
 }
 
 class _MyInformationState extends State<MyInformation> {
+  String tick = "";
+
+  readQRCode() async {
+    String code = await FlutterBarcodeScanner.scanBarcode(
+      "#FFFFFF",
+      "Cancelar",
+      false,
+      ScanMode.QR,
+    );
+    setState(() {
+      tick = code != '-1' ? code : "Não avaliado";
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final double limite = widget.user.runtimeType == Admin ? 0.40 : 0.35;
@@ -154,7 +169,9 @@ class _MyInformationState extends State<MyInformation> {
                   padding: const EdgeInsets.symmetric(vertical: 10.0),
                   child: Expanded(
                     child: GestureDetector(
-                      onTap: (() => maisTarde(context, "QrCode")),
+                      onTap: () {
+                        readQRCode();
+                      },
                       child: Container(
                           decoration: BoxDecoration(
                               color: CustomColor().getCorPadraoAzul,
@@ -169,23 +186,10 @@ class _MyInformationState extends State<MyInformation> {
                     ),
                   ),
                 )
-              : const SizedBox()
+              : const SizedBox(),
+          Expanded(child: Text(tick)),
         ],
       ),
     );
   }
-}
-
-Future<dynamic> maisTarde(BuildContext context, String titulo) {
-  return showDialog(
-    context: context,
-    builder: (BuildContext context) => AlertDialog(
-      title: Text(titulo),
-      content: const Text("Em desenvolvimento"),
-      actions: [
-        TextButton(
-            onPressed: () => Navigator.pop(context), child: const Text("Ok"))
-      ],
-    ),
-  );
 }
