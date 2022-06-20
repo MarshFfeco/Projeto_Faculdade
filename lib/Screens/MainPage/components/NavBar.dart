@@ -4,7 +4,7 @@ import 'package:fadba/Screens/PerfilScreen/MainPerfilScreen.dart';
 import 'package:fadba/values/Custom_color.dart';
 import 'package:flutter/material.dart';
 
-import '../../../Controller/User.dart';
+import '../../../Controller/User1.dart';
 
 class NavBar extends StatelessWidget {
   const NavBar({Key? key, required this.usuario}) : super(key: key);

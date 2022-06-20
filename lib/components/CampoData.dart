@@ -1,6 +1,7 @@
-import 'package:flutter/material.dart';
+/* import 'package:flutter/material.dart';
 
 import '../../values/Custom_color.dart';
+import '../Screens/SignUp/model/register_model.dart';
 
 class CampoData extends StatefulWidget {
   const CampoData({
@@ -16,9 +17,9 @@ class CampoData extends StatefulWidget {
   State<CampoData> createState() => _CampoDataState();
 }
 
-class _CampoDataState extends State<CampoData> {
+class _CampoDataState extends State<CampoData>  {
   DateTime selectDate = DateTime.now();
-
+  
   final firstDate = DateTime(1800, 1);
   final lastDate = DateTime(2050, 12);
 
@@ -62,7 +63,10 @@ class _CampoDataState extends State<CampoData> {
     ).then((value) {
       setState(() {
         dateTime = value;
+
+        regist = regist.copyWith(idade: "so um tester boy");
       });
     });
   }
 }
+ */

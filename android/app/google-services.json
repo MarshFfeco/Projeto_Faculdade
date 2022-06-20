@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "135184268289",
+    "firebase_url": "https://insidehome-c5f1d-default-rtdb.firebaseio.com",
+    "project_id": "insidehome-c5f1d",
+    "storage_bucket": "insidehome-c5f1d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:135184268289:android:19d9ee5a28aea0ac1e5400",
+        "android_client_info": {
+          "package_name": "com.example.fadba"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "135184268289-s99lckphaea2k2m4n5qikrsogk7e2j51.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlfnWY2vqZ9ANgDxGfouEuAxnpdyqoN1g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "135184268289-s99lckphaea2k2m4n5qikrsogk7e2j51.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

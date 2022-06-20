@@ -3,11 +3,16 @@ import 'package:flutter/material.dart';
 import '../values/Custom_color.dart';
 
 class CampoEscolha extends StatefulWidget {
-  CampoEscolha({Key? key, required this.dropOpcoes, required this.dropValue})
+  CampoEscolha(
+      {Key? key,
+      required this.dropOpcoes,
+      this.onSaved,
+      required this.dropValue})
       : super(key: key);
 
   List dropOpcoes = [];
   String dropValue;
+  final void Function(String? text)? onSaved;
 
   @override
   State<CampoEscolha> createState() => _CampoEscolhaState();
@@ -31,6 +36,7 @@ class _CampoEscolhaState extends State<CampoEscolha> {
                 Colors.black
               ])),
       child: DropdownButtonFormField(
+        onSaved: widget.onSaved,
         decoration: const InputDecoration(
           enabledBorder: InputBorder.none,
           errorBorder: InputBorder.none,

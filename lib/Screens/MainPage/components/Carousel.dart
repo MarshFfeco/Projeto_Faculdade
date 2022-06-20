@@ -1,5 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:fadba/Controller/User.dart';
+import 'package:fadba/Controller/User1.dart';
 import 'package:fadba/values/Custom_color.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';

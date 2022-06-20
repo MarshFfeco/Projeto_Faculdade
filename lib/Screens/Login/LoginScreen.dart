@@ -1,4 +1,4 @@
-import 'package:fadba/Controller/User.dart';
+import 'package:fadba/Controller/User1.dart';
 import 'package:fadba/components/Formulario.dart';
 import 'package:fadba/values/Custom_color.dart';
 import 'package:flutter/material.dart';
@@ -20,6 +20,7 @@ class _LoginScreenState extends State<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _pass = TextEditingController();
   final UserLogin usuario = UserLogin();
+  final loginRespController = TextEditingController();
 
   GlobalKey get getFormKey {
     return _formKey;

@@ -7,18 +7,17 @@ class CampoNumero extends StatefulWidget {
     Key? key,
     required this.hinText,
     required this.altura,
+    this.onSaved,
   }) : super(key: key);
 
   final String hinText;
   final double altura;
-
+  final void Function(String? text)? onSaved;
   @override
   State<CampoNumero> createState() => _CampoNumeroState();
 }
 
 class _CampoNumeroState extends State<CampoNumero> {
-  final TextEditingController numeroController = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -34,9 +33,9 @@ class _CampoNumeroState extends State<CampoNumero> {
               ])),
       child: TextFormField(
         style: const TextStyle(color: Colors.white),
-        controller: numeroController,
         keyboardType: TextInputType.phone,
         obscureText: false,
+        onSaved: widget.onSaved,
         decoration: InputDecoration(
           contentPadding: const EdgeInsets.only(left: 20),
           filled: false,

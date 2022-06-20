@@ -1,4 +1,4 @@
-import 'package:fadba/Controller/User.dart';
+import 'package:fadba/Controller/User1.dart';
 import 'package:fadba/Screens/MainPage/MainPage.dart';
 import 'package:fadba/Screens/SignUp/SignUpScreen.dart';
 import 'package:flutter/material.dart';
@@ -59,6 +59,7 @@ class Botao extends StatelessWidget {
             if (formKey.currentState!.validate()) {
               ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                   content: Text('Cadastro realizado com sucesso')));
+              //final UserCadastro usuario = UserCadastro();
             }
           }
         },

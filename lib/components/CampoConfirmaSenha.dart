@@ -3,7 +3,11 @@ import 'package:flutter/material.dart';
 import '../../values/Custom_color.dart';
 
 class SenhaRepetiSenha extends StatefulWidget {
-  const SenhaRepetiSenha({Key? key}) : super(key: key);
+  const SenhaRepetiSenha({
+    Key? key,
+    this.onSaved,
+  }) : super(key: key);
+  final void Function(String? text)? onSaved;
 
   @override
   State<SenhaRepetiSenha> createState() => _SenhaRepetiSenhaState();
@@ -11,7 +15,7 @@ class SenhaRepetiSenha extends StatefulWidget {
 
 class _SenhaRepetiSenhaState extends State<SenhaRepetiSenha> {
   final TextEditingController _pass = TextEditingController();
-  final TextEditingController _confirmPass = TextEditingController();
+  final TextEditingController confirmPass = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -68,8 +72,9 @@ class _SenhaRepetiSenhaState extends State<SenhaRepetiSenha> {
                     Colors.black
                   ])),
           child: TextFormField(
+            onSaved: widget.onSaved,
             style: const TextStyle(color: Colors.white),
-            controller: _confirmPass,
+            controller: confirmPass,
             keyboardType: TextInputType.visiblePassword,
             obscureText: true,
             decoration: const InputDecoration(
@@ -86,7 +91,7 @@ class _SenhaRepetiSenhaState extends State<SenhaRepetiSenha> {
               if (value == null || value.isEmpty) {
                 return "Campo Vazio";
               }
-              if (_pass.text != _confirmPass.text) {
+              if (_pass.text != confirmPass.text) {
                 return "Senha diferente";
               }
               return null;

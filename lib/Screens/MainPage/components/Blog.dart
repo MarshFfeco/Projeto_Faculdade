@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../Controller/User.dart';
+import '../../../Controller/User1.dart';
 import 'Article.dart';
 
 class Blog extends StatefulWidget {

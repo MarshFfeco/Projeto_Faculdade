@@ -15,7 +15,7 @@ class BotaoSignUp extends StatefulWidget {
 }
 
 class _BotaoSignUpState extends State<BotaoSignUp> {
-  bool isDrag = false;
+  final bool isDrag = false; // variavel do botao
   @override
   Widget build(BuildContext context) {
     return Dismissible(
@@ -25,6 +25,9 @@ class _BotaoSignUpState extends State<BotaoSignUp> {
             if (widget.formKey.currentState!.validate()) {
               if (direction == DismissDirection.startToEnd) {
                 chamada();
+                widget.formKey.currentState!.save();
+
+                //aqui colocar a iteracao
                 return;
               }
               if (direction == DismissDirection.endToStart) {

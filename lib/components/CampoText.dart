@@ -9,9 +9,17 @@ class CampoTexto extends StatefulWidget {
       required this.textInputType,
       required this.altura,
       required this.valorCadastrado,
+      this.onSaved,
+      this.onChanged,
+      this.Validator,
+      this.obscureText = false,
       this.login = false})
       : super(key: key);
 
+  final void Function(String? text)? onSaved;
+  final void Function(String? text)? onChanged;
+  final String? Function(String? text)? Validator;
+  final bool obscureText;
   final String hinText;
   final TextInputType textInputType;
   final double altura;
@@ -23,8 +31,6 @@ class CampoTexto extends StatefulWidget {
 }
 
 class _CampoTextoState extends State<CampoTexto> {
-  final TextEditingController textController = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -39,10 +45,12 @@ class _CampoTextoState extends State<CampoTexto> {
                 Colors.black
               ])),
       child: TextFormField(
+          onChanged: widget.onChanged,
+          autovalidateMode: AutovalidateMode.onUserInteraction,
+          onSaved: widget.onSaved,
           style: const TextStyle(color: Colors.white),
-          controller: textController,
           keyboardType: widget.textInputType,
-          obscureText: false,
+          obscureText: widget.obscureText,
           decoration: InputDecoration(
             contentPadding: const EdgeInsets.only(left: 20),
             filled: false,
@@ -53,19 +61,7 @@ class _CampoTextoState extends State<CampoTexto> {
             hintText: widget.hinText,
             hintStyle: const TextStyle(color: Colors.white24),
           ),
-          validator: (value) {
-            if (value == null || value.isEmpty) {
-              return "Campo vazio";
-            }
-
-            if (widget.login) {
-              if (value != widget.valorCadastrado) {
-                return "Iconrreto";
-              }
-            }
-
-            return null;
-          }),
+          validator: widget.Validator),
     );
   }
 }
